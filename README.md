@@ -5,7 +5,7 @@
 > Image and CSS file support
 
 
-> Splited webpack production and development config file
+> Splited webpack configuration into production and development 
 
 
 > And couple of other basic configuration
