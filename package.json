@@ -6,6 +6,7 @@
   "private": true,
   "scripts": {
     "start": "webpack-dev-server --config webpack.dev.js --open",
+    "dev": "webpack-dev-server --config webpack.dev.js --open",
     "build": "webpack --config webpack.prod.js"
   },
   "repository": {
@@ -15,6 +16,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "ml5": "^0.5.0",
+    "p5": "^1.0.0",
     "webpack": "^4.43.0",
     "webpack-cli": "^3.3.11"
   },
