@@ -4,7 +4,7 @@ let video;
 let features;
 let knn;
 let labelP;
-let ready = false;
+let ready = true;
 const containerElement = document.getElementById("p5-container");
 const sketch = (p) => {
   p.setup = function () {
@@ -20,16 +20,15 @@ const sketch = (p) => {
   };
 
   p.draw = function () {
-    //drawing the element on the dom p.
+    //drawing the element on the dom
     p.image(video, 0, 0);
 
-    setTimeout(() => {
-      //checking if any data had been given to the model yet
-      if (knn.getNumLabels() > 0) {
-        goClassify();
-        ready = true;
-      }
-    }, 20000);
+    //running the statement only one if there are any labels
+    if (knn.getNumLabels() > 0 && ready) {
+      console.log("====================================");
+      goClassify();
+      ready = false;
+    }
   };
 
   //handling key press and training the model
@@ -49,6 +48,7 @@ const sketch = (p) => {
       console.log("up");
     }
   };
+
   function goClassify() {
     const logits = features.infer(video);
     //classifying the video instance (logits) and getting the result based on training data
@@ -59,9 +59,10 @@ const sketch = (p) => {
         // displaying the result on the dom
         labelP.html(result.label);
         labelP.style("font-size", "64pt");
-
         //doing the classification continuously, so after a good training, the video recorder will capture every moment and shows it result
-        goClassify();
+        setTimeout(() => {
+          goClassify();
+        }, 50);
       }
     });
   }
