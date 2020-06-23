@@ -8,6 +8,10 @@ let ready = true;
 let endTrainingData = false;
 let trainingFinished = false;
 let logitsContainer = [];
+let class1Name = window.prompt("Class1 Name: ", "left");
+let class2Name = window.prompt("Class2 Name: ", "right");
+let class3Name = window.prompt("Class2 Name: ", "up");
+
 const containerElement = document.getElementById("p5-container");
 
 const sketch = (p) => {
@@ -24,7 +28,7 @@ const sketch = (p) => {
   };
 
   p.draw = function () {
-    //drawing the element on the dom
+    //adding the video element on the dom
     p.image(video, 0, 0);
     //The statement will run only once when all of its condition fulfilled
     if (knn.getNumLabels() > 0 && ready && trainingFinished) {
@@ -43,16 +47,13 @@ const sketch = (p) => {
       // TRAINING THE KNN MODEL
       if (p.keyCode == 37) {
         console.log("left", logitsContainer.length);
-        logitsContainer.push({ logits, class: "left" });
+        logitsContainer.push({ logits, class: class1Name });
       } else if (p.keyCode == 39) {
         console.log("right", logitsContainer.length);
-        logitsContainer.push({ logits, class: "right" });
+        logitsContainer.push({ logits, class: class2Name });
       } else if (p.keyCode == 38) {
         console.log("up", logitsContainer.length);
         logitsContainer.push({ logits, class: "up" });
-      } else if (p.keyCode == 40) {
-        console.log("down", logitsContainer.length);
-        logitsContainer.push({ logits, class: "down" });
       }
       //if the user presses enter, gathering all data and training the model
       else if (p.keyCode == 13) {
@@ -66,7 +67,8 @@ const sketch = (p) => {
           knn.addExample(data.logits, data.class);
         });
         labelP.html("Training Completed");
-
+        knn.save("model.json");
+        console.log(knn);
         //setting trainingFinished to true, so we can start displaying the result
         trainingFinished = true;
       }
