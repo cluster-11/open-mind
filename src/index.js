@@ -1,97 +1,89 @@
 import p5 from "p5";
 import ml5 from "ml5";
-let video;
-let features;
-let knn;
-let labelP;
-let ready = true;
-let endTrainingData = false;
-let trainingFinished = false;
-let logitsContainer = [];
-let class1Name = window.prompt("Class1 Name: ", "left");
-let class2Name = window.prompt("Class2 Name: ", "right");
-let class3Name = window.prompt("Class2 Name: ", "up");
 
-const containerElement = document.getElementById("p5-container");
+const video1Container = document.querySelector(".video1-container");
+const video2Container = document.querySelector(".video2-container");
+const video3Container = document.querySelector(".video3-container");
+const showResult = document.querySelector(".show-result");
+const trainBtn1 = document.querySelector(".btn-1");
+const trainBtn2 = document.querySelector(".btn-2");
+const submitBtn = document.querySelector(".submit-btn");
 
+let video1;
+let video2;
+let video3;
+let ml5Features = ml5.featureExtractor("MobileNet", () => {});
+let knn = ml5.KNNClassifier();
+
+//adding video1 as a video on the dom
 const sketch = (p) => {
   p.setup = function () {
     p.createCanvas(600, 400);
-    video = p.createCapture(p5.VIDEO);
-    video.size(600, 400);
-    video.hide();
-    features = ml5.featureExtractor("MobileNet", () => {
-      console.log("Model is ready");
-    });
-    knn = ml5.KNNClassifier();
-    labelP = p.createP("need training data");
+    video1 = p.createCapture(p5.VIDEO);
+    video1.size(600, 400);
   };
-
-  p.draw = function () {
-    //adding the video element on the dom
-    p.image(video, 0, 0);
-    //The statement will run only once when all of its condition fulfilled
-    if (knn.getNumLabels() > 0 && ready && trainingFinished) {
-      goClassify();
-      ready = false;
-      console.log(p);
-    }
-  };
-
-  //handling key press and training the model
-  p._onkeydown = function () {
-    if (!endTrainingData) {
-      //takes a instance of the video right at the moment when any key pressed
-      const logits = features.infer(video);
-      console.log(p.keyCode);
-      // TRAINING THE KNN MODEL
-      if (p.keyCode == 37) {
-        console.log("left", logitsContainer.length);
-        logitsContainer.push({ logits, class: class1Name });
-      } else if (p.keyCode == 39) {
-        console.log("right", logitsContainer.length);
-        logitsContainer.push({ logits, class: class2Name });
-      } else if (p.keyCode == 38) {
-        console.log("up", logitsContainer.length);
-        logitsContainer.push({ logits, class: "up" });
-      }
-      //if the user presses enter, gathering all data and training the model
-      else if (p.keyCode == 13) {
-        //stopping keyPress-events so the user can't add any more data
-        endTrainingData = true;
-
-        labelP.html(`Training, ${logitsContainer.length}`);
-
-        logitsContainer.map((data) => {
-          //training the model based on data from logitsContainer
-          knn.addExample(data.logits, data.class);
-        });
-        labelP.html("Training Completed");
-        knn.save("model.json");
-        console.log(knn);
-        //setting trainingFinished to true, so we can start displaying the result
-        trainingFinished = true;
-      }
-    }
-  };
-
-  function goClassify() {
-    const logits = features.infer(video);
-    //classifying the video instance (logits) and getting the result based on training data
-    knn.classify(logits, (error, result) => {
-      if (error) {
-        console.error(error);
-      } else {
-        // displaying the result on the dom
-        labelP.html(result.label);
-        labelP.style("font-size", "64pt");
-        //doing the classification continuously, so after a good training, the video recorder will capture every moment with a 50ms gape. and shows it result
-        setTimeout(() => {
-          goClassify();
-        }, 50);
-      }
-    });
-  }
 };
 
-new p5(sketch, containerElement);
+//adding video2 as a video on the dom
+const sketch2 = (p) => {
+  p.setup = function () {
+    p.createCanvas(600, 400);
+    video2 = p.createCapture(p5.VIDEO);
+
+    video2.size(600, 400);
+  };
+};
+
+function addData(v, className) {
+  console.log(v);
+  const logits = ml5Features.infer(v);
+  knn.addExample(logits, className);
+  console.log("Added example for", className);
+}
+
+function getResult(v) {
+  const logits = ml5Features.infer(v);
+  //classifying the video instance (logits) and getting the result based on training data
+  knn.classify(logits, (error, result) => {
+    if (error) {
+      console.error(error);
+    } else {
+      //showing result on the dom
+      showResult.innerText = result.label;
+      //running the classification function continuously.
+      setTimeout(() => {
+        getResult(v);
+      }, 50);
+    }
+  });
+}
+
+trainBtn1.addEventListener("click", () => {
+  addData(video1, "class1");
+});
+
+trainBtn2.addEventListener("click", () => {
+  addData(video2, "class2");
+});
+
+submitBtn.addEventListener("click", () => {
+  video1.hide();
+  video2.hide();
+
+  //adding video3 as a video on the dom
+  const sketch3 = (p) => {
+    p.setup = function () {
+      p.createCanvas(600, 400);
+      video3 = p.createCapture(p5.VIDEO);
+      video3.size(600, 400);
+    };
+  };
+  new p5(sketch3, video3Container);
+
+  getResult(video3);
+});
+
+new p5(sketch, video1Container);
+new p5(sketch2, video2Container);
+
+//TODO: save the model and later when users reloads the page, ask them if they want to use the pertained model

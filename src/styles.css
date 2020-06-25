@@ -1,4 +1,12 @@
 body,
 html {
   font-family: sans-serif;
+  background-color: black;
+}
+canvas {
+  display: none;
+}
+
+div {
+  display: none;
 }
