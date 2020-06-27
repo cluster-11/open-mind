@@ -1,17 +1,7 @@
-## webpack-template
+## Open Mind
 
-**Basic webpack template with**
+> A web application that you can use to train and recognize your own images
 
-> Image and CSS file support
-
-
-> Splited webpack configuration into production and development 
-
-
-> And couple of other basic configuration
-
-
-<br />
-
-
-**Clone this project and get started**
+- easy to understand and helpful comments
+- uses `ml5` library
+- similar to google's teachable machine project
