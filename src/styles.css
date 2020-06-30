@@ -3,12 +3,47 @@ html {
   font-family: sans-serif;
 }
 
-.img-sample1 {
+.data-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  justify-items: center;
+  align-items: center;
+  text-align: center;
+}
+
+.class1-name {
+  padding: 8px;
+  margin: 0 auto;
+  display: block;
+}
+
+.class2-name {
+  padding: 8px;
+  margin: 0 auto;
+  display: block;
+}
+
+.btn-1,
+.btn-2,
+.submit-btn {
+  height: 40px;
+  cursor: pointer;
+  border: 2px solid rgb(107, 107, 107);
+  border-radius: 5px;
+  transition: 0.1s;
+  color: black;
+  background-color: white;
+  display: block;
+  margin: 0 auto;
+}
+
+/* .
+class1-sample {
   display: flex;
   margin-bottom: 5vh;
 }
 
-.img-sample2 {
+.class2-sample {
   display: flex;
 }
 
@@ -53,4 +88,4 @@ html {
   width: 40px;
   margin: 0 auto;
   margin-top: 5vh;
-}
+} */

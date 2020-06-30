@@ -17,6 +17,7 @@
   "license": "ISC",
   "dependencies": {
     "ml5": "^0.5.0",
+    "popper.js": "^1.16.1",
     "webpack": "^4.43.0",
     "webpack-cli": "^3.3.11"
   },
