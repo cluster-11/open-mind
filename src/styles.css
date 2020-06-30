@@ -3,6 +3,11 @@ html {
   font-family: sans-serif;
 }
 
+.previous-model {
+  text-align: end;
+  cursor: pointer;
+}
+
 .data-container {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -24,8 +29,7 @@ html {
 }
 
 .btn-1,
-.btn-2,
-.submit-btn {
+.btn-2 {
   height: 40px;
   cursor: pointer;
   border: 2px solid rgb(107, 107, 107);
@@ -35,6 +39,11 @@ html {
   background-color: white;
   display: block;
   margin: 0 auto;
+  display: inline-block;
+}
+
+.file-import {
+  cursor: pointer;
 }
 
 /* .
