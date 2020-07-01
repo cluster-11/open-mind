@@ -3,34 +3,102 @@
   <head>
     <meta charset="UTF-8" />
     <title>Open Mind</title>
+    <!-- CSS only -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css"
+      integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I"
+      crossorigin="anonymous"
+    />
   </head>
   <body>
     <p class="previous-model">Use Previous model</p>
-    <div class="data-container">
-      <div class="class1-sample">
+    <div class="row">
+      <div id="class1-sample" class="col">
         <video id="video1" width="460" height="345" autoplay></video>
-        <input type="text" class="class1-name" value="class1" />
-        <button class="btn-1">Add Image Sample</button>
-        <span class="file-import">
-          <img src="./assets/folder-search.svg" alt="import image from file"  width="20px" height="20px"></img>
-        </span>
+        <div class="input-group input-group-sm mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="inputGroup-sizing-sm">Name</span>
+          </div>
+          <input
+            type="text"
+            id="class1-name"
+            class="form-control"
+            placeholder="Class 1"
+            aria-label="Small"
+            aria-describedby="inputGroup-sizing-sm"
+          />
+        </div>
+        <button id="btn-1" type="button" class="btn btn-dark">
+          Add Image Sample
+        </button>
+        <button
+          type="button"
+          class="btn btn-light"
+          data-toggle="tooltip"
+          title="import image from device"
+        >
+          <img
+            src="./assets/folder-search.svg"
+            alt="import image from device"
+            width="20px"
+            height="20px"
+          />
+        </button>
         <p class="image-counter1">0/ minimum 10</p>
       </div>
-      <div class="class2-sample">
+      <div id="class2-sample" class="col">
         <video id="video2" width="460" height="345" autoplay></video>
-        <input type="text" class="class1-name" value="class2" />
-        <button class="btn-2">Add Image Sample</button>
-        <span class="file-import">
-          <img src="./assets/folder-search.svg" alt="import image from file" width="20px" height="20px"></img>
-        </span>
+        <div class="input-group input-group-sm mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="inputGroup-sizing-sm">Name</span>
+          </div>
+          <input
+            type="text"
+            id="class2-name"
+            class="form-control"
+            placeholder="Class 2"
+            aria-label="Small"
+            aria-describedby="inputGroup-sizing-sm"
+          />
+        </div>
+        <button id="btn-2" type="button" class="btn btn-dark">
+          Add Image Sample
+        </button>
+
+        <button
+          type="button"
+          class="btn btn-light"
+          data-toggle="tooltip"
+          title="import image from device"
+        >
+          <img
+            src="./assets/folder-search.svg"
+            alt="import image from device"
+            width="20px"
+            height="20px"
+          />
+        </button>
         <p class="image-counter2">0/ minimum 10</p>
       </div>
     </div>
 
-    <div class="show-result">
+    <div id="show-result" class="container">
       <video id="video3" width="640" height="480" autoplay></video>
       <h2 class="result-text"></h2>
-      <button class="submit-btn">Submit</button>
+      <button type="button" class="btn btn-outline-warning" id="submit-btn">
+        Submit
+      </button>
     </div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"
+      integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/"
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>

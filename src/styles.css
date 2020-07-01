@@ -2,99 +2,17 @@ body,
 html {
   font-family: sans-serif;
 }
-
-.previous-model {
-  text-align: end;
-  cursor: pointer;
+#class1-sample {
+  width: 460px;
+  flex: 0;
+  margin: 0 auto;
+  justify-content: center;
 }
 
-.data-container {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  justify-items: center;
-  align-items: center;
+#class2-sample {
+  width: 460px;
+  flex: 0;
+  margin: 0 auto;
+  justify-content: center;
   text-align: center;
 }
-
-.class1-name {
-  padding: 8px;
-  margin: 0 auto;
-  display: block;
-}
-
-.class2-name {
-  padding: 8px;
-  margin: 0 auto;
-  display: block;
-}
-
-.btn-1,
-.btn-2 {
-  height: 40px;
-  cursor: pointer;
-  border: 2px solid rgb(107, 107, 107);
-  border-radius: 5px;
-  transition: 0.1s;
-  color: black;
-  background-color: white;
-  display: block;
-  margin: 0 auto;
-  display: inline-block;
-}
-
-.file-import {
-  cursor: pointer;
-}
-
-/* .
-class1-sample {
-  display: flex;
-  margin-bottom: 5vh;
-}
-
-.class2-sample {
-  display: flex;
-}
-
-.btn-1,
-.btn-2,
-.submit-btn {
-  height: 40px;
-  margin: auto 50px;
-  cursor: pointer;
-  border: 2px solid rgb(107, 107, 107);
-  border-radius: 5px;
-  transition: 0.1s;
-  color: black;
-  background-color: white;
-}
-
-.btn-1:hover,
-.btn-2:hover,
-.submit-btn:hover {
-  background-color: rgb(46, 46, 46);
-  color: white;
-}
-
-.submit-btn {
-  position: absolute;
-  top: 45vh;
-  right: 10vw;
-  width: 90px;
-}
-
-.image-counter1,
-.image-counter2 {
-  margin: auto 20px;
-}
-
-.show-result {
-  display: table;
-  margin: 0 auto;
-}
-
-.result-text {
-  width: 40px;
-  margin: 0 auto;
-  margin-top: 5vh;
-} */

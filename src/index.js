@@ -1,12 +1,12 @@
 import ml5 from "ml5";
 import "./styles.css";
 
-const trainBtn1 = document.querySelector(".btn-1");
-const trainBtn2 = document.querySelector(".btn-2");
-const submitBtn = document.querySelector(".submit-btn");
-const imageCounter1 = document.querySelector(".image-counter1");
-const imageCounter2 = document.querySelector(".image-counter2");
-const resultText = document.querySelector(".result-text");
+const trainBtn1 = document.querySelector("#btn-1");
+const trainBtn2 = document.querySelector("#btn-2");
+const submitBtn = document.querySelector("#submit-btn");
+const imageCounter1 = document.querySelector("#image-counter1");
+const imageCounter2 = document.querySelector("#image-counter2");
+const resultText = document.querySelector("#result-text");
 
 let video1 = document.getElementById("video1");
 let video2 = document.getElementById("video2");
