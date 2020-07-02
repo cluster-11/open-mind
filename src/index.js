@@ -3,16 +3,23 @@
 import ml5 from "ml5";
 import "./styles.css";
 
-const trainBtn1 = document.querySelector("#btn-1");
-const trainBtn2 = document.querySelector("#btn-2");
+//dom-element
+const cs1TrainBtn = document.querySelector("#btn-1");
+const cs2TrainBtn = document.querySelector("#btn-2");
 const submitBtn = document.querySelector("#submit-btn");
-const imageCounter1 = document.querySelector("#image-counter1");
-const imageCounter2 = document.querySelector("#image-counter2");
+const cs1ImageCounter = document.querySelector("#cs1-image-counter");
+const cs2ImageCounter = document.querySelector("#cs2-image-counter");
+const cs1ImageUpload = document.querySelector("#cs1-image-upload");
+const cs2ImageUpload = document.querySelector("#cs2-image-upload");
+const cs1Name = document.querySelector("#cs1-name");
+const cs2Name = document.querySelector("#cs2-name");
 const resultText = document.querySelector("#result-text");
-const imageInput1 = document.querySelector("#cs1-image-upload");
 let video1 = document.getElementById("video1");
 let video2 = document.getElementById("video2");
 let video3 = document.getElementById("video3");
+
+const testImg = document.querySelector("#test-img");
+
 let ml5Features = ml5.featureExtractor("MobileNet", () => {});
 let knn = ml5.KNNClassifier();
 
@@ -31,12 +38,27 @@ video3.style.display = "none";
 resultText.style.display = "none";
 
 //adding data, training the model
-function addData(v, className) {
-  const logits = ml5Features.infer(v);
-  knn.addExample(logits, className);
+function addData(fromVideo, className, customImgEvent = undefined) {
+  //if the user uploads image instead of capturing them from the video
+  if (customImgEvent) {
+    const imgSrc = window.URL.createObjectURL(customImgEvent.target.files[0]);
+    testImg.src = imgSrc;
+    const logits = ml5Features.infer(testImg);
+    knn.addExample(logits, className);
+  }
+  //default, capturing from the the video
+  else {
+    const logits = ml5Features.infer(fromVideo);
+    knn.addExample(logits, className);
+  }
+
   const totalImage = knn.getCount();
-  imageCounter1.innerText = `${totalImage[0] ? totalImage[0] : 0}/ minimum 10`;
-  imageCounter2.innerText = `${totalImage[1] ? totalImage[1] : 0}/ minimum 10`;
+  cs1ImageCounter.innerText = `${
+    totalImage[0] ? totalImage[0] : 0
+  }/ minimum 10`;
+  cs2ImageCounter.innerText = `${
+    totalImage[1] ? totalImage[1] : 0
+  }/ minimum 10`;
 }
 
 //getting the result
@@ -57,29 +79,31 @@ function getResult(v) {
   });
 }
 
-trainBtn1.addEventListener("click", () => {
-  addData(video1, "class1");
+cs1TrainBtn.addEventListener("click", () => {
+  addData(video1, cs1Name.value);
 });
 
-trainBtn2.addEventListener("click", () => {
-  addData(video2, "class2");
+cs2TrainBtn.addEventListener("click", () => {
+  addData(video2, cs2Name.value);
 });
 
-imageInput1.addEventListener("change", (e) => {
-  // console.log(img);
-  const imgSrc = window.URL.createObjectURL(e.target.files[0]);
-  console.log(imgSrc);
+cs1ImageUpload.addEventListener("change", (e) => {
+  addData(undefined, cs1Name.value, e);
+});
+
+cs2ImageUpload.addEventListener("change", (e) => {
+  addData(undefined, cs2Name.value, e);
 });
 
 submitBtn.addEventListener("click", () => {
   //removing some element and adding some element
   video1.style.display = "none";
   video2.style.display = "none";
-  trainBtn1.style.display = "none";
-  trainBtn2.style.display = "none";
+  cs1TrainBtn.style.display = "none";
+  cs2TrainBtn.style.display = "none";
   submitBtn.style.display = "none";
-  imageCounter1.style.display = "none";
-  imageCounter2.style.display = "none";
+  cs1ImageCounter.style.display = "none";
+  cs2ImageCounter.style.display = "none";
   video3.style.display = "inline";
   resultText.style.display = "block";
   setUpVideo(video3);
