@@ -1,3 +1,5 @@
+//FORM SUBMITTING DOESN'T WORK
+
 import ml5 from "ml5";
 import "./styles.css";
 
@@ -7,7 +9,7 @@ const submitBtn = document.querySelector("#submit-btn");
 const imageCounter1 = document.querySelector("#image-counter1");
 const imageCounter2 = document.querySelector("#image-counter2");
 const resultText = document.querySelector("#result-text");
-
+const imageInput1 = document.querySelector("#cs1-image-upload");
 let video1 = document.getElementById("video1");
 let video2 = document.getElementById("video2");
 let video3 = document.getElementById("video3");
@@ -63,6 +65,12 @@ trainBtn2.addEventListener("click", () => {
   addData(video2, "class2");
 });
 
+imageInput1.addEventListener("change", (e) => {
+  // console.log(img);
+  const imgSrc = window.URL.createObjectURL(e.target.files[0]);
+  console.log(imgSrc);
+});
+
 submitBtn.addEventListener("click", () => {
   //removing some element and adding some element
   video1.style.display = "none";
@@ -77,5 +85,3 @@ submitBtn.addEventListener("click", () => {
   setUpVideo(video3);
   getResult(video3);
 });
-
-//TODO: 1. save the model and later when users reloads the page, ask them if they want to use the pertained model

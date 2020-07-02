@@ -7,6 +7,7 @@ html {
   flex: 0;
   margin: 0 auto;
   justify-content: center;
+  text-align: center;
 }
 
 #class2-sample {
@@ -15,4 +16,12 @@ html {
   margin: 0 auto;
   justify-content: center;
   text-align: center;
+}
+
+#cs1-image-upload {
+  display: none;
+}
+
+#cs2-image-upload {
+  display: none;
 }

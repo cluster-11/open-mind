@@ -3,7 +3,6 @@
   <head>
     <meta charset="UTF-8" />
     <title>Open Mind</title>
-    <!-- CSS only -->
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css"
@@ -14,6 +13,7 @@
   <body>
     <p class="previous-model">Use Previous model</p>
     <div class="row">
+      <!-- Class1 Sample Section START-->
       <div id="class1-sample" class="col">
         <video id="video1" width="460" height="345" autoplay></video>
         <div class="input-group input-group-sm mb-3">
@@ -32,21 +32,28 @@
         <button id="btn-1" type="button" class="btn btn-dark">
           Add Image Sample
         </button>
-        <button
-          type="button"
-          class="btn btn-light"
-          data-toggle="tooltip"
-          title="import image from device"
-        >
-          <img
-            src="./assets/folder-search.svg"
-            alt="import image from device"
-            width="20px"
-            height="20px"
-          />
-        </button>
-        <p class="image-counter1">0/ minimum 10</p>
+
+        <label for="cs1-image-upload">
+          <span
+            class="btn btn-light"
+            data-toggle="tooltip"
+            title="import image from device"
+          >
+            <img
+              src="./assets/folder-search.svg"
+              alt="import image from device"
+              width="20px"
+              height="20px"
+            />
+          </span>
+        </label>
+        <input id="cs1-image-upload" type="file" accept="image/*" />
+        <p id="image-counter1">0/ minimum 10</p>
       </div>
+
+      <!-- Class1 Sample Section END-->
+
+      <!-- Class2 Sample Section START-->
       <div id="class2-sample" class="col">
         <video id="video2" width="460" height="345" autoplay></video>
         <div class="input-group input-group-sm mb-3">
@@ -65,31 +72,37 @@
         <button id="btn-2" type="button" class="btn btn-dark">
           Add Image Sample
         </button>
-
-        <button
-          type="button"
-          class="btn btn-light"
-          data-toggle="tooltip"
-          title="import image from device"
-        >
-          <img
-            src="./assets/folder-search.svg"
-            alt="import image from device"
-            width="20px"
-            height="20px"
-          />
-        </button>
-        <p class="image-counter2">0/ minimum 10</p>
+        <label for="cs2-image-upload">
+          <span
+            class="btn btn-light"
+            data-toggle="tooltip"
+            title="import image from device"
+          >
+            <img
+              src="./assets/folder-search.svg"
+              alt="import image from device"
+              width="20px"
+              height="20px"
+            />
+          </span>
+        </label>
+        <input id="cs2-image-upload" type="file" accept="image/*" />
+        <p id="image-counter2">0/ minimum 10</p>
       </div>
+      <!-- Class2 Sample Section END-->
     </div>
+    <button type="button" class="btn btn-outline-warning" id="submit-btn">
+      Submit
+    </button>
 
+    <!-- Result Section START-->
+    <input id="cs1-image-upload" type="file" accept="image/*" />
     <div id="show-result" class="container">
       <video id="video3" width="640" height="480" autoplay></video>
-      <h2 class="result-text"></h2>
-      <button type="button" class="btn btn-outline-warning" id="submit-btn">
-        Submit
-      </button>
+      <h2 id="result-text"></h2>
     </div>
+    <!-- Result Section END-->
+
     <script
       src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
       integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
