@@ -43,29 +43,37 @@ function addData(fromVideo, className, customImgEvent = undefined) {
   if (customImgEvent) {
     //if the user uploads multiple image
     console.log(customImgEvent.target.files);
-    customImgEvent.target.files.map((i) => {
+    [...customImgEvent.target.files].map((i) => {
       const newImg = new Image(1, 1);
       const imgSrc = window.URL.createObjectURL(i);
       //Preference: hiding the img element, we don't want to show it on this application
       newImg.style.display = "none";
       newImg.src = imgSrc;
-      const logits = ml5Features.infer(newImg);
-      knn.addExample(logits, className);
+      newImg.onload = () => {
+        const logits = ml5Features.infer(newImg);
+        knn.addExample(logits, className);
+        const totalImage = knn.getCount();
+        cs1ImageCounter.innerText = `${
+          totalImage[0] ? totalImage[0] : 0
+        }/ minimum 10`;
+        cs2ImageCounter.innerText = `${
+          totalImage[1] ? totalImage[1] : 0
+        }/ minimum 10`;
+      };
     });
   }
   //default, capturing from the the video
   else {
     const logits = ml5Features.infer(fromVideo);
     knn.addExample(logits, className);
+    const totalImage = knn.getCount();
+    cs1ImageCounter.innerText = `${
+      totalImage[0] ? totalImage[0] : 0
+    }/ minimum 10`;
+    cs2ImageCounter.innerText = `${
+      totalImage[1] ? totalImage[1] : 0
+    }/ minimum 10`;
   }
-
-  const totalImage = knn.getCount();
-  cs1ImageCounter.innerText = `${
-    totalImage[0] ? totalImage[0] : 0
-  }/ minimum 10`;
-  cs2ImageCounter.innerText = `${
-    totalImage[1] ? totalImage[1] : 0
-  }/ minimum 10`;
 }
 
 //getting the result
