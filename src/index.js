@@ -41,10 +41,17 @@ resultText.style.display = "none";
 function addData(fromVideo, className, customImgEvent = undefined) {
   //if the user uploads image instead of capturing them from the video
   if (customImgEvent) {
-    const imgSrc = window.URL.createObjectURL(customImgEvent.target.files[0]);
-    testImg.src = imgSrc;
-    const logits = ml5Features.infer(testImg);
-    knn.addExample(logits, className);
+    //if the user uploads multiple image
+    console.log(customImgEvent.target.files);
+    customImgEvent.target.files.map((i) => {
+      const newImg = new Image(1, 1);
+      const imgSrc = window.URL.createObjectURL(i);
+      //Preference: hiding the img element, we don't want to show it on this application
+      newImg.style.display = "none";
+      newImg.src = imgSrc;
+      const logits = ml5Features.infer(newImg);
+      knn.addExample(logits, className);
+    });
   }
   //default, capturing from the the video
   else {
