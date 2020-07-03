@@ -18,7 +18,6 @@ let video1 = document.getElementById("video1");
 let video2 = document.getElementById("video2");
 let video3 = document.getElementById("video3");
 
-const testImg = document.querySelector("#test-img");
 
 let ml5Features = ml5.featureExtractor("MobileNet", () => {});
 let knn = ml5.KNNClassifier();
