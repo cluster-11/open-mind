@@ -1,4 +1,4 @@
-//FORM SUBMITTING DOESN'T WORK
+//Add the second image data first, the bug will appear
 
 import ml5 from "ml5";
 import "./styles.css";
@@ -17,7 +17,6 @@ const resultText = document.querySelector("#result-text");
 let video1 = document.getElementById("video1");
 let video2 = document.getElementById("video2");
 let video3 = document.getElementById("video3");
-
 
 let ml5Features = ml5.featureExtractor("MobileNet", () => {});
 let knn = ml5.KNNClassifier();
@@ -38,10 +37,10 @@ resultText.style.display = "none";
 
 //adding data, training the model
 function addData(fromVideo, className, customImgEvent = undefined) {
+  console.log("Getting image data");
   //if the user uploads image instead of capturing them from the video
   if (customImgEvent) {
     //if the user uploads multiple image
-    console.log(customImgEvent.target.files);
     [...customImgEvent.target.files].map((i) => {
       const newImg = new Image(1, 1);
       const imgSrc = window.URL.createObjectURL(i);
@@ -59,10 +58,15 @@ function addData(fromVideo, className, customImgEvent = undefined) {
           totalImage[1] ? totalImage[1] : 0
         }/ minimum 10`;
       };
+      console.log("feeded image data");
+      console.log(knn.getCountByLabel(cs1Name.value));
+      console.log(knn.getCountByLabel(cs2Name.value));
     });
   }
   //default, capturing from the the video
   else {
+    console.log("Getting video data");
+
     const logits = ml5Features.infer(fromVideo);
     knn.addExample(logits, className);
     const totalImage = knn.getCount();
@@ -73,6 +77,10 @@ function addData(fromVideo, className, customImgEvent = undefined) {
       totalImage[1] ? totalImage[1] : 0
     }/ minimum 10`;
   }
+  console.log("feeded video data");
+  console.log(knn);
+  console.log(knn.getCountByLabel()[cs1Name.value]);
+  console.log(knn.getCountByLabel()[cs2Name.value]);
 }
 
 //getting the result
@@ -85,12 +93,19 @@ function getResult(v) {
     } else {
       //showing result on the dom
       resultText.innerText = result.label;
-      //running the classification function continuously.
+      //running the classification function continuously, with a 40 milliseconds break
       setTimeout(() => {
         getResult(v);
-      }, 50);
+      }, 40);
     }
   });
+}
+
+//changing the class name
+function changeClassName(newName, index) {
+  if (knn.knnClassifier.mapStringToIndex) {
+    knn.knnClassifier.mapStringToIndex[index] = newName;
+  }
 }
 
 cs1TrainBtn.addEventListener("click", () => {
@@ -109,7 +124,21 @@ cs2ImageUpload.addEventListener("change", (e) => {
   addData(undefined, cs2Name.value, e);
 });
 
+cs1Name.addEventListener("keyup", () => {
+  //first class starts ar 0
+  changeClassName(cs1Name.value, 0);
+});
+
+cs2Name.addEventListener("keyup", () => {
+  //second class starts ar 1
+  changeClassName(cs2Name.value, 1);
+});
+
 submitBtn.addEventListener("click", () => {
+  // Important, final check if the class names are as expected
+  changeClassName(cs1Name.value, 0);
+  changeClassName(cs2Name.value, 1);
+
   //removing some element and adding some element
   video1.style.display = "none";
   video2.style.display = "none";
