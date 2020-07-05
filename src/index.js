@@ -15,8 +15,8 @@ import "./handle-training";
 import "./handle-result";
 
 //setting up ml5 and knn components
-let ml5Features = ml5.featureExtractor("MobileNet", () => {});
-let knn = ml5.KNNClassifier();
+export let ml5Features = ml5.featureExtractor("MobileNet", () => {});
+export let knn = ml5.KNNClassifier();
 
 //CLOSED FOR DEVELOPMENT
 // //ask before leaving/quitting the application
