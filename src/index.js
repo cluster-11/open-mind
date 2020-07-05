@@ -1,4 +1,12 @@
 //Not expected result? One of the reason could be not enough example images
+//want to integrate this kind of feature? see the starter template or use this
+//facing bug/issues, create a github issue here
+//like this project? give it a start
+// about- this project is part of cluster-11 organization
+//view a similar application from google teachable machine
+//download the model
+
+//spit the code
 
 import ml5 from "ml5";
 import "./styles.css";
@@ -44,6 +52,7 @@ function addData(fromVideo, className, customImgEvent = undefined) {
       const newImg = new Image(460, 345);
       const imgSrc = window.URL.createObjectURL(i);
       //Preference: hiding the img element, we don't want to show it on this application
+      // https://stackoverflow.com/questions/3511200/new-image-how-to-know-if-image-100-loaded-or-not
       newImg.style.display = "none";
       newImg.src = imgSrc;
       newImg.onload = () => {
@@ -129,3 +138,11 @@ submitBtn.addEventListener("click", () => {
   setUpVideo(video3);
   getResult(video3);
 });
+
+// window.onbeforeunload = function () {
+//   window.confirm("Changes you made may not be saved");c
+// };
+
+window.onbeforeunload = function () {
+  return "Changes you made may not be saved";
+};
