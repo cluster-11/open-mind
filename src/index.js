@@ -6,6 +6,7 @@
 //view a similar application from google teachable machine
 //download the model
 //vanilla javascript and html code of this application
+//remove console.log
 
 //split the code
 

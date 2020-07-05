@@ -6,11 +6,11 @@ const cs1ImageCounter = document.querySelector("#cs1-image-counter");
 const cs2ImageCounter = document.querySelector("#cs2-image-counter");
 const cs1ImageUpload = document.querySelector("#cs1-image-upload");
 const cs2ImageUpload = document.querySelector("#cs2-image-upload");
-const resultText = document.querySelector("#result-text");
 
-let video1 = document.getElementById("video1");
-let video2 = document.getElementById("video2");
-let video3 = document.getElementById("video3");
+let video1 = document.querySelector("#cs1-video");
+let video2 = document.querySelector("#cs2-video");
+console.log(video1);
+console.log(video2);
 
 //setting up the video capture component
 export async function setUpVideo(v) {
@@ -23,8 +23,6 @@ export async function setUpVideo(v) {
 
 setUpVideo(video1);
 setUpVideo(video2);
-video3.style.display = "none";
-resultText.style.display = "none";
 
 //adding data, training the model
 function addData(fromVideo, className, customImgEvent = undefined) {
@@ -70,6 +68,8 @@ function addData(fromVideo, className, customImgEvent = undefined) {
 
 cs1TrainBtn.addEventListener("mousedown", () => {
   addData(video1, "class1");
+  //calling the function again to capture more data
+  addData(video1, "class1");
 });
 
 cs1ImageUpload.addEventListener("change", (e) => {
@@ -77,6 +77,8 @@ cs1ImageUpload.addEventListener("change", (e) => {
 });
 
 cs2CaptureVideo.addEventListener("mousedown", () => {
+  addData(video2, "class2");
+  //calling the function again to capture more data
   addData(video2, "class2");
 });
 
