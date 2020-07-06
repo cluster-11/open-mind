@@ -12,7 +12,6 @@
 //split the code
 //move codebase to ml5 cdn, its much faster, link: https://stackoverflow.com/questions/43605215/using-cdn-vs-installing-library-by-npm
 
-import ml5 from "ml5";
 import "./styles.css";
 import "./handle-training";
 import "./handle-result";
