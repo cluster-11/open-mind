@@ -20,17 +20,17 @@ function getResult(v) {
     if (error) {
       console.error(error);
     } else {
-      console.log(result);
-      if (result.label == "class1") {
-        //showing result on the dom, showing the class name based on what the user decided
-        result1Text.innerText = `${cs1Name.value} ${
-          result.confidencesByLabel["class1"] * 100
-        }`;
-      } else if (result.label == "class2") {
-        result2Text.innerText = `${cs2Name.value} ${
-          result.confidencesByLabel["class2"] * 100
-        }`;
-      }
+      const resultPC = result.confidencesByLabel;
+
+      //showing result on the dom, showing the class name based on what the user decided
+      result1Text.innerText = `${cs1Name.value} ${
+        resultPC["class1"] ? resultPC["class1"] * 100 : 0
+      }%`;
+
+      result2Text.innerText = `${cs2Name.value} ${
+        resultPC["class2"] ? resultPC["class2"] * 100 : 0
+      }%`;
+
       //running the classification function continuously, with a 40 milliseconds break
       setTimeout(() => {
         getResult(v);

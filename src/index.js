@@ -7,8 +7,10 @@
 //download the model
 //vanilla javascript and html code of this application
 //remove console.log
+//you need to give permisson to use the webcam (if theres no webcam)
 
 //split the code
+//move codebase to ml5 cdn, its much faster, link: https://stackoverflow.com/questions/43605215/using-cdn-vs-installing-library-by-npm
 
 import ml5 from "ml5";
 import "./styles.css";

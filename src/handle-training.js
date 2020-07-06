@@ -9,8 +9,6 @@ const cs2ImageUpload = document.querySelector("#cs2-image-upload");
 
 let video1 = document.querySelector("#cs1-video");
 let video2 = document.querySelector("#cs2-video");
-console.log(video1);
-console.log(video2);
 
 //setting up the video capture component
 export async function setUpVideo(v) {
@@ -55,7 +53,7 @@ function addData(fromVideo, className, customImgEvent = undefined) {
     knn.addExample(logits, className);
 
     const totalExample = knn.getCountByLabel();
-    console.log(totalExample);
+    console.log(knn);
     //showing total totalExample on the dom
     cs1ImageCounter.innerText = `${
       totalExample["class1"] ? totalExample["class1"] : 0
