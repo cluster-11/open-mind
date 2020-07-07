@@ -20,7 +20,7 @@ export let ml5Features = ml5.featureExtractor("MobileNet", () => {});
 export let knn = ml5.KNNClassifier();
 
 //CLOSED FOR DEVELOPMENT
-// //ask before leaving/quitting the application
-// window.onbeforeunload = function () {
-//   return "Changes you made may not be saved";
-// };
+//ask before leaving/quitting the application
+window.onbeforeunload = function () {
+  return "Changes you made may not be saved";
+};
