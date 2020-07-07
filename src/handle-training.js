@@ -12,11 +12,19 @@ let video2 = document.querySelector("#cs2-video");
 
 //setting up the video capture component
 export async function setUpVideo(v) {
-  const stream = await navigator.mediaDevices.getUserMedia({
-    video: true,
-  });
-  v.srcObject = stream;
-  v.play();
+  navigator.mediaDevices
+    .getUserMedia({
+      video: true,
+    })
+    .then((stream) => {
+      v.srcObject = stream;
+      v.play();
+    })
+    .catch(() => {
+      alert(
+        "You'll have to enable webcam access in order to use video-capture feature."
+      );
+    });
 }
 
 setUpVideo(video1);

@@ -3,14 +3,17 @@ import { ml5Features, knn } from "./index";
 
 //dom-element
 const submitBtn = document.querySelector("#submit-btn");
-const result1Text = document.querySelector("#result1-text");
-const result2Text = document.querySelector("#result2-text");
+const result1Container = document.querySelector("#result1-pc-container");
+const result2Container = document.querySelector("#result2-pc-container");
+const result1PC = document.querySelector("#result1-pc");
+const result2PC = document.querySelector("#result2-pc");
 let resultVideo = document.querySelector("#result-video");
-
-const cs1Name = document.querySelector("#cs1-name");
-const cs2Name = document.querySelector("#cs2-name");
+const cs1Name = document.querySelector("#cs1-name").value;
+const cs2Name = document.querySelector("#cs2-name").value;
 const cs1SampleContainer = document.querySelector("#class1-sample");
 const cs2SampleContainer = document.querySelector("#class2-sample");
+const result1Name = document.querySelector("#result1-name");
+const result2Name = document.querySelector("#result2-name");
 
 //getting the result
 function getResult(v) {
@@ -20,21 +23,19 @@ function getResult(v) {
     if (error) {
       console.error(error);
     } else {
-      const resultPC = result.confidencesByLabel;
+      const resultPC1 = result.confidencesByLabel["class1"] * 100;
+      const resultPC2 = result.confidencesByLabel["class2"] * 100;
 
       //showing result on the dom, showing the class name based on what the user decided
-      result1Text.innerText = `${cs1Name.value} ${
-        resultPC["class1"] ? resultPC["class1"] * 100 : 0
-      }%`;
+      result1PC.style.width = `${resultPC1}%`;
+      result2PC.style.width = `${resultPC2}%`;
 
-      result2Text.innerText = `${cs2Name.value} ${
-        resultPC["class2"] ? resultPC["class2"] * 100 : 0
-      }%`;
-
+      result1PC.innerText = `${resultPC1.toFixed(2)}%`;
+      result2PC.innerText = `${resultPC2.toFixed(2)}%`;
       //running the classification function continuously, with a 40 milliseconds break
       setTimeout(() => {
         getResult(v);
-      }, 40);
+      }, 5);
     }
   });
 }
@@ -45,8 +46,12 @@ submitBtn.addEventListener("click", () => {
   cs2SampleContainer.style.display = "none";
   submitBtn.style.display = "none";
   resultVideo.style.display = "inline";
-  result1Text.style.display = "block";
-  result2Text.style.display = "block";
+  result1Container.style.display = "block";
+  result2Container.style.display = "block";
+  result1PC.style.display = "inline-block";
+  result2PC.style.display = "inline-block";
+  result1Name.innerText = cs1Name;
+  result2Name.innerText = cs2Name;
   setUpVideo(resultVideo);
   getResult(resultVideo);
 });

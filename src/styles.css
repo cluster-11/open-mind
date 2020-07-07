@@ -36,3 +36,60 @@ html {
 #result2-text {
   display: none;
 }
+
+#result1-container,
+#result2-container {
+  display: inline;
+}
+
+#result1-name {
+  display: inline;
+}
+
+#result2-name {
+  display: inline;
+}
+
+#result1-pc-container {
+  display: none;
+  width: 300px;
+  height: 20px;
+  background-color: rgba(137, 43, 226, 0.151);
+  border-radius: 5px;
+}
+
+#result2-pc-container {
+  display: none;
+  width: 300px;
+  height: 20px;
+  background-color: rgba(226, 194, 13, 0.281);
+  border-radius: 5px;
+}
+
+#result1-pc {
+  width: 90%;
+  height: 20px;
+  background-color: rgb(137, 43, 226);
+  -webkit-transition: width 0.15s ease-in-out;
+  -moz-transition: width 0.15s ease-in-out;
+  -o-transition: width 0.15s ease-in-out;
+  transition: width 0.15s ease-in-out;
+  text-align: end;
+  display: none;
+  border-radius: 5px;
+  font-size: 15px;
+}
+
+#result2-pc {
+  width: 90%;
+  height: 20px;
+  background-color: rgb(226, 194, 13);
+  -webkit-transition: width 0.15s ease-in-out;
+  -moz-transition: width 0.15s ease-in-out;
+  -o-transition: width 0.15s ease-in-out;
+  transition: width 0.15s ease-in-out;
+  text-align: end;
+  display: none;
+  border-radius: 5px;
+  font-size: 15px;
+}
