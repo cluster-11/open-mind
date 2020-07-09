@@ -58,7 +58,7 @@ submitBtn.addEventListener("click", () => {
   getResult(resultVideo);
 });
 
+//downloading the model
 downloadModel.addEventListener("click", () => {
-  console.log("Download model triggered");
   knn.save();
 });
