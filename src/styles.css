@@ -2,6 +2,11 @@ body,
 html {
   font-family: sans-serif;
 }
+
+.row {
+  --bs-gutter-x: none;
+}
+
 #class1-sample {
   width: 460px;
   flex: 0;
@@ -67,7 +72,7 @@ html {
 }
 
 #result1-pc {
-  width: 90%;
+  width: 50%;
   height: 20px;
   background-color: rgb(137, 43, 226);
   -webkit-transition: width 0.15s ease-in-out;
@@ -81,7 +86,7 @@ html {
 }
 
 #result2-pc {
-  width: 90%;
+  width: 50%;
   height: 20px;
   background-color: rgb(226, 194, 13);
   -webkit-transition: width 0.15s ease-in-out;
@@ -95,5 +100,9 @@ html {
 }
 
 #download-model {
+  display: none;
+}
+
+#prev-model-input {
   display: none;
 }

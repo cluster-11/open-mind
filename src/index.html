@@ -11,7 +11,16 @@
     />
   </head>
   <body>
-    <p class="previous-model">Use Previous model</p>
+    <label for="prev-model-input">
+      <span
+        class="btn btn-light"
+        data-toggle="tooltip"
+        title="import knn dataset and use it"
+      >
+        Load model
+      </span>
+    </label>
+    <input id="prev-model-input" type="file" accept=".json" />
     <div class="row">
       <!-- Class1 Sample Section START-->
       <div id="class1-sample" class="col">
@@ -122,7 +131,7 @@
         </div>
       </div>
       <button class="btn btn-secondary" id="download-model">
-        Download model
+        Download dataset
       </button>
     </div>
     <!-- Result Section END-->

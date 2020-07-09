@@ -7,7 +7,6 @@ const result1Container = document.querySelector("#result1-pc-container");
 const result2Container = document.querySelector("#result2-pc-container");
 const result1PC = document.querySelector("#result1-pc");
 const result2PC = document.querySelector("#result2-pc");
-let resultVideo = document.querySelector("#result-video");
 const cs1Name = document.querySelector("#cs1-name").value;
 const cs2Name = document.querySelector("#cs2-name").value;
 const cs1SampleContainer = document.querySelector("#class1-sample");
@@ -15,6 +14,8 @@ const cs2SampleContainer = document.querySelector("#class2-sample");
 const result1Name = document.querySelector("#result1-name");
 const result2Name = document.querySelector("#result2-name");
 const downloadModel = document.querySelector("#download-model");
+const previousModelInput = document.querySelector("#prev-model-input");
+let resultVideo = document.querySelector("#result-video");
 
 //getting the result
 function getResult(v) {
@@ -41,7 +42,7 @@ function getResult(v) {
   });
 }
 
-submitBtn.addEventListener("click", () => {
+function modifyDomElem() {
   //removing some element and adding some element
   cs1SampleContainer.style.display = "none";
   cs2SampleContainer.style.display = "none";
@@ -54,6 +55,10 @@ submitBtn.addEventListener("click", () => {
   downloadModel.style.display = "block";
   result1Name.innerText = cs1Name;
   result2Name.innerText = cs2Name;
+}
+
+submitBtn.addEventListener("click", () => {
+  modifyDomElem();
   setUpVideo(resultVideo);
   getResult(resultVideo);
 });
@@ -61,4 +66,14 @@ submitBtn.addEventListener("click", () => {
 //downloading the model
 downloadModel.addEventListener("click", () => {
   knn.save();
+});
+
+previousModelInput.addEventListener("change", (e) => {
+  knn.clearAllLabels();
+  modifyDomElem();
+  const dataSetSrc = window.URL.createObjectURL(e.target.files[0]);
+  knn.load(dataSetSrc, () => {
+    setUpVideo(resultVideo);
+    getResult(resultVideo);
+  });
 });
