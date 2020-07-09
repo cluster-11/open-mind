@@ -14,6 +14,7 @@ const cs1SampleContainer = document.querySelector("#class1-sample");
 const cs2SampleContainer = document.querySelector("#class2-sample");
 const result1Name = document.querySelector("#result1-name");
 const result2Name = document.querySelector("#result2-name");
+const downloadModel = document.querySelector("#download-model");
 
 //getting the result
 function getResult(v) {
@@ -50,8 +51,14 @@ submitBtn.addEventListener("click", () => {
   result2Container.style.display = "block";
   result1PC.style.display = "inline-block";
   result2PC.style.display = "inline-block";
+  downloadModel.style.display = "block";
   result1Name.innerText = cs1Name;
   result2Name.innerText = cs2Name;
   setUpVideo(resultVideo);
   getResult(resultVideo);
+});
+
+downloadModel.addEventListener("click", () => {
+  console.log("Download model triggered");
+  knn.save();
 });

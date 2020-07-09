@@ -11,7 +11,7 @@
 //webpack input css on top
 //use teachable machine show result css
 
-import "./styles.css";
+import "../styles.css";
 import "./handle-training";
 import "./handle-result";
 
@@ -21,6 +21,6 @@ export let knn = ml5.KNNClassifier();
 
 //CLOSED FOR DEVELOPMENT
 //ask before leaving/quitting the application
-window.onbeforeunload = function () {
-  return "Changes you made may not be saved";
-};
+// window.onbeforeunload = function () {
+//   return "Changes you made may not be saved";
+// };
