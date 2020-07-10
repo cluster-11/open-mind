@@ -15,10 +15,12 @@
 import "../styles.css";
 import "./handle-training";
 import "./handle-result";
+import Mobilenet from "./knn-classifier&mobileNet/mobileNet";
+import KNNClassifier from "./knn-classifier&mobileNet/knn-classifier";
 
 //setting up ml5 and knn components
-export let ml5Features = ml5.featureExtractor("MobileNet", () => {});
-export let knn = ml5.KNNClassifier();
+export let ml5Features = Mobilenet;
+export let knn = KNNClassifier;
 
 //CLOSED FOR DEVELOPMENT
 //ask before leaving/quitting the application
