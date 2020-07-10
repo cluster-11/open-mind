@@ -42,8 +42,8 @@ function getResult(v) {
   });
 }
 
+//removing and adding some elements from the dom
 function modifyDomElem() {
-  //removing some element and adding some element
   cs1SampleContainer.style.display = "none";
   cs2SampleContainer.style.display = "none";
   submitBtn.style.display = "none";
@@ -68,12 +68,20 @@ downloadModel.addEventListener("click", () => {
   knn.save();
 });
 
+//handling custom model input
 previousModelInput.addEventListener("change", (e) => {
   knn.clearAllLabels();
   modifyDomElem();
   const dataSetSrc = window.URL.createObjectURL(e.target.files[0]);
-  knn.load(dataSetSrc, () => {
-    setUpVideo(resultVideo);
-    getResult(resultVideo);
+  //need to work on invalid knn import
+  knn.load(dataSetSrc, (e, result) => {
+    console.log(e, result);
+    if (e) {
+      alert("You have imported an invalid KNN Dataset");
+      console.log(e);
+    } else {
+      setUpVideo(resultVideo);
+      getResult(resultVideo);
+    }
   });
 });

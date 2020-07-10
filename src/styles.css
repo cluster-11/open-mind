@@ -7,6 +7,27 @@ html {
   --bs-gutter-x: none;
 }
 
+#prev-model-input {
+  display: none;
+}
+
+#prev-model-container {
+  height: 50px;
+  width: 98vw;
+  margin-top: 1vh;
+  margin-bottom: 3vh;
+}
+
+#prev-model-container span {
+  float: right;
+  border-bottom: 2px solid rgb(107, 102, 102);
+  cursor: pointer;
+}
+
+#prev-model-container span:hover {
+  border-bottom: 3px solid rgb(107, 102, 102);
+}
+
 #class1-sample {
   width: 460px;
   flex: 0;
@@ -100,9 +121,5 @@ html {
 }
 
 #download-model {
-  display: none;
-}
-
-#prev-model-input {
   display: none;
 }

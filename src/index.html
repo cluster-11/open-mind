@@ -11,16 +11,18 @@
     />
   </head>
   <body>
-    <label for="prev-model-input">
+    <!-- importing dataset from user START -->
+    <label for="prev-model-input" id="prev-model-container">
       <span
-        class="btn btn-light"
         data-toggle="tooltip"
-        title="import knn dataset and use it"
+        title="import knn dataset and use it instead of training a new one"
       >
-        Load model
+        Load Dataset
       </span>
     </label>
     <input id="prev-model-input" type="file" accept=".json" />
+    <!-- importing dataset from user END -->
+
     <div class="row">
       <!-- Class1 Sample Section START-->
       <div id="class1-sample" class="col">
@@ -49,7 +51,7 @@
             title="upload image from device"
           >
             <img
-              src="./assets/folder-search.svg"
+              src="../public/folder-search.svg"
               alt="upload image from device"
               width="20px"
               height="20px"
@@ -93,7 +95,7 @@
             title="upload image from device"
           >
             <img
-              src="./assets/folder-search.svg"
+              src="../public/folder-search.svg"
               alt="upload image from device"
               width="20px"
               height="20px"
@@ -135,7 +137,6 @@
       </button>
     </div>
     <!-- Result Section END-->
-
     <script
       src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
       integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"

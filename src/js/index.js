@@ -10,6 +10,7 @@
 //test on gpu slowdown, create new js for mobile
 //webpack input css on top
 //use teachable machine show result css
+//ml5 doesn't show show percentage, stuck at 66.33% or 33.33% work on that, create a github issue or visit other demo
 
 import "../styles.css";
 import "./handle-training";
