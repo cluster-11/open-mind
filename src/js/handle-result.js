@@ -7,8 +7,8 @@ const result1Container = document.querySelector("#result1-pc-container");
 const result2Container = document.querySelector("#result2-pc-container");
 const result1PC = document.querySelector("#result1-pc");
 const result2PC = document.querySelector("#result2-pc");
-const cs1Name = document.querySelector("#cs1-name").value;
-const cs2Name = document.querySelector("#cs2-name").value;
+const cs1Name = document.querySelector("#cs1-name");
+const cs2Name = document.querySelector("#cs2-name");
 const cs1SampleContainer = document.querySelector("#class1-sample");
 const cs2SampleContainer = document.querySelector("#class2-sample");
 const result1Name = document.querySelector("#result1-name");
@@ -53,8 +53,8 @@ function modifyDomElem() {
   result1PC.style.display = "inline-block";
   result2PC.style.display = "inline-block";
   downloadModel.style.display = "block";
-  result1Name.innerText = cs1Name;
-  result2Name.innerText = cs2Name;
+  result1Name.innerText = cs1Name.value;
+  result2Name.innerText = cs2Name.value;
 }
 
 submitBtn.addEventListener("click", () => {
