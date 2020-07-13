@@ -47,7 +47,7 @@ class KNN {
    * @param {function} callback  - Optional. A function to be called once the input has been classified. If no callback is provided, it will return a promise that will be resolved once the model has classified the new input.
    */
   async classify(input, kOrCallback, cb) {
-    let k = 3;
+    let k = 100; //this determines how specific will be the result in percentage(1 is low, 100 is max)
     let callback = cb;
     let example;
 

@@ -11,6 +11,7 @@
 //webpack input css on top
 //use teachable machine show result css
 //ml5 doesn't show show percentage, stuck at 66.33% or 33.33% work on that, create a github issue or visit other demo
+//ask for images if none is provided
 
 import "../styles.css";
 import "./handle-training";

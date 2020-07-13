@@ -48,10 +48,10 @@ function addData(fromVideo, className, customImgEvent = undefined) {
         const totalImage = knn.getCount();
         cs1ImageCounter.innerText = `${
           totalImage[0] ? totalImage[0] : 0
-        }/ minimum 10`;
+        }/ as much as possible`;
         cs2ImageCounter.innerText = `${
           totalImage[1] ? totalImage[1] : 0
-        }/ minimum 10`;
+        }/ as much as possible`;
       };
     });
   }
@@ -65,10 +65,10 @@ function addData(fromVideo, className, customImgEvent = undefined) {
     //showing total totalExample on the dom
     cs1ImageCounter.innerText = `${
       totalExample["class1"] ? totalExample["class1"] : 0
-    }/ minimum 10`;
+    }/ as much as possible`;
     cs2ImageCounter.innerText = `${
       totalExample["class2"] ? totalExample["class2"] : 0
-    }/ minimum 10`;
+    }/ as much as possible`;
   }
 }
 

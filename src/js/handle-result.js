@@ -25,6 +25,7 @@ function getResult(v) {
     if (error) {
       console.error(error);
     } else {
+      //showing result percentage
       const resultPC1 = result.confidencesByLabel["class1"] * 100;
       const resultPC2 = result.confidencesByLabel["class2"] * 100;
 
@@ -63,6 +64,7 @@ submitBtn.addEventListener("click", () => {
 });
 
 resultVideo.addEventListener("loadeddata", () => {
+  console.log("data loaded");
   getResult(resultVideo);
 });
 
@@ -84,7 +86,10 @@ previousModelInput.addEventListener("change", (e) => {
       console.log(e);
     } else {
       setUpVideo(resultVideo);
-      getResult(resultVideo);
+      if (resultVideo.readyState >= 4) {
+        //checking if the video has loaded properly, more here: https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/readyState
+        getResult(resultVideo);
+      }
     }
   });
 });
