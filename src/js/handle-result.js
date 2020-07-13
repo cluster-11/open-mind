@@ -59,7 +59,10 @@ function modifyDomElem() {
 
 submitBtn.addEventListener("click", () => {
   modifyDomElem();
-  setUpVideo(resultVideo);
+  setUpVideo(resultVideo); //this sets up the video element, connects webcam to video
+});
+
+resultVideo.addEventListener("loadeddata", () => {
   getResult(resultVideo);
 });
 

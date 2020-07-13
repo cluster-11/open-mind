@@ -18,10 +18,14 @@ import "./handle-result";
 import Mobilenet from "./knn-classifier&mobileNet/mobileNet";
 import KNNClassifier from "./knn-classifier&mobileNet/knn-classifier";
 
-//setting up ml5 and knn components
-export let ml5Features = Mobilenet;
-export let knn = KNNClassifier;
+// alert("=================================================================");
 
+//setting up ml5 and knn components
+//something has to do with async task and parameters
+export let ml5Features = new Mobilenet("MobileNet", () => {});
+export let knn = new KNNClassifier();
+
+// alert(knn.addExample);
 //CLOSED FOR DEVELOPMENT
 //ask before leaving/quitting the application
 // window.onbeforeunload = function () {

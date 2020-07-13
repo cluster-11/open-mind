@@ -227,6 +227,4 @@ class KNN {
   }
 }
 
-const KNNClassifier = () => new KNN();
-
-export default KNNClassifier;
+export default KNN;

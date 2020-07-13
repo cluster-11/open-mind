@@ -617,4 +617,6 @@ class Mobilenet {
   }
 }
 
+// Mobilenet;
+
 export default Mobilenet;
