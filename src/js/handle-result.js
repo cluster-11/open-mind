@@ -64,7 +64,6 @@ submitBtn.addEventListener("click", () => {
 });
 
 resultVideo.addEventListener("loadeddata", () => {
-  console.log("data loaded");
   getResult(resultVideo);
 });
 
@@ -80,10 +79,8 @@ previousModelInput.addEventListener("change", (e) => {
   const dataSetSrc = window.URL.createObjectURL(e.target.files[0]);
   //need to work on invalid knn import
   knn.load(dataSetSrc, (e, result) => {
-    console.log(e, result);
     if (e) {
       alert("You have imported an invalid KNN Dataset");
-      console.log(e);
     } else {
       setUpVideo(resultVideo);
       if (resultVideo.readyState >= 4) {

@@ -61,7 +61,6 @@ function addData(fromVideo, className, customImgEvent = undefined) {
     knn.addExample(logits, className);
 
     const totalExample = knn.getCountByLabel();
-    console.log(knn);
     //showing total totalExample on the dom
     cs1ImageCounter.innerText = `${
       totalExample["class1"] ? totalExample["class1"] : 0
