@@ -21,14 +21,11 @@ import KNNClassifier from "./knn-classifier&mobileNet/knn-classifier";
 
 // alert("=================================================================");
 
-//setting up ml5 and knn components
-//something has to do with async task and parameters
 export let ml5Features = new Mobilenet("MobileNet", () => {});
 export let knn = new KNNClassifier();
 
-// alert(knn.addExample);
 //CLOSED FOR DEVELOPMENT
 //ask before leaving/quitting the application
-window.onbeforeunload = function () {
-  return "Changes you made may not be saved";
-};
+// window.onbeforeunload = function () {
+//   return "Changes you made may not be saved";
+// };

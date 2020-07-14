@@ -123,3 +123,14 @@ html {
 #download-model {
   display: none;
 }
+
+#about-btn {
+  position: absolute;
+  bottom: 3vh;
+  right: 1vw;
+  border-radius: 50%;
+}
+
+#about-btn svg {
+  color: black;
+}
