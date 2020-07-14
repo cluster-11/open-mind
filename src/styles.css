@@ -128,7 +128,7 @@ html {
   position: absolute;
   bottom: 3vh;
   right: 1vw;
-  border-radius: 50%;
+  border-radius: 30%;
 }
 
 #about-btn svg {
