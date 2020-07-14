@@ -90,3 +90,5 @@ cs2CaptureVideo.addEventListener("mousedown", () => {
 cs2ImageUpload.addEventListener("change", (e) => {
   addData(undefined, "class2", e);
 });
+
+// For the about section

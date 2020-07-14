@@ -37,6 +37,7 @@ export const loadFile = async (path, callback) =>
       console.error(
         `There has been a problem loading the file: ${error.message}`
       );
+      alert(`There has been a problem loading the file: ${error.message}`); //showing alert if the json file is invalid
       throw error;
     });
 
