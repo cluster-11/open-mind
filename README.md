@@ -5,3 +5,4 @@
 - easy to understand and helpful comments
 - uses `ml5` library
 - similar to google's teachable machine project
+- An extended version of the Knn starter application.
