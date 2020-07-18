@@ -58,6 +58,10 @@ html {
   margin-left: 10px;
 }
 
+.progress {
+  margin-top: 2vh;
+}
+
 #submit-btn {
   margin-top: 8vh;
   margin-bottom: 10vh;
@@ -136,10 +140,11 @@ html {
 }
 
 #about-btn {
-  position: fixed;
   bottom: 3vh;
-  right: 1vw;
   border-radius: 30%;
+  float: right;
+  margin-right: 3vh;
+  margin-bottom: 1vh;
 }
 
 #about-btn svg {

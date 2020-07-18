@@ -78,7 +78,7 @@ previousModelInput.addEventListener("change", (e) => {
   modifyDomElem();
   const dataSetSrc = window.URL.createObjectURL(e.target.files[0]);
   //need to work on invalid knn import
-  knn.load(dataSetSrc, (e, result) => {
+  knn.load(dataSetSrc, (e) => {
     if (e) {
       alert("You have imported an invalid KNN Dataset");
     } else {

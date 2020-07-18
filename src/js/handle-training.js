@@ -42,16 +42,19 @@ function addData(fromVideo, className, customImgEvent = undefined) {
       // https://stackoverflow.com/questions/3511200/new-image-how-to-know-if-image-100-loaded-or-not
       newImg.style.display = "none";
       newImg.src = imgSrc;
+
       newImg.onload = () => {
         const logits = ml5Features.infer(newImg);
         knn.addExample(logits, className);
-        const totalImage = knn.getCount();
-        cs1ImageCounter.innerText = `${
-          totalImage[0] ? totalImage[0] : 0
-        }/ as much as possible`;
-        cs2ImageCounter.innerText = `${
-          totalImage[1] ? totalImage[1] : 0
-        }/ as much as possible`;
+        const totalImage = knn.getCountByLabel();
+        console.log(totalImage);
+
+        cs1ImageCounter.style.width = totalImage["class1"]
+          ? `${totalImage["class1"]}%`
+          : "0%";
+        cs2ImageCounter.style.width = totalImage["class2"]
+          ? `${totalImage["class2"]}%`
+          : "0%";
       };
     });
   }
@@ -60,14 +63,15 @@ function addData(fromVideo, className, customImgEvent = undefined) {
     const logits = ml5Features.infer(fromVideo);
     knn.addExample(logits, className);
 
-    const totalExample = knn.getCountByLabel();
-    //showing total totalExample on the dom
-    cs1ImageCounter.innerText = `${
-      totalExample["class1"] ? totalExample["class1"] : 0
-    }/ as much as possible`;
-    cs2ImageCounter.innerText = `${
-      totalExample["class2"] ? totalExample["class2"] : 0
-    }/ as much as possible`;
+    knn.addExample(logits, className);
+    const totalImage = knn.getCountByLabel();
+    console.log(totalImage);
+    cs1ImageCounter.style.width = totalImage["class1"]
+      ? `${totalImage["class1"]}%`
+      : "0%";
+    cs2ImageCounter.style.width = totalImage["class2"]
+      ? `${totalImage["class2"]}%`
+      : "0%";
   }
 }
 
