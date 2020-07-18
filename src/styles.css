@@ -97,6 +97,7 @@ html {
   height: 20px;
   background-color: rgba(137, 43, 226, 0.151);
   border-radius: 5px;
+  text-align: start;
 }
 
 #result2-pc-container {
@@ -105,6 +106,7 @@ html {
   height: 20px;
   background-color: rgba(226, 194, 13, 0.281);
   border-radius: 5px;
+  text-align: start;
 }
 
 #result1-pc {
