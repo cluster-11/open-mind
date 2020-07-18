@@ -1,6 +1,7 @@
 body,
 html {
   font-family: sans-serif;
+  text-align: center;
 }
 
 .row {
@@ -50,6 +51,16 @@ html {
 
 #cs2-image-upload {
   display: none;
+}
+
+#cs1-img-upload-btn,
+#cs2-img-upload-btn {
+  margin-left: 10px;
+}
+
+#submit-btn {
+  margin-top: 8vh;
+  margin-bottom: 10vh;
 }
 
 #result-video {
@@ -125,7 +136,7 @@ html {
 }
 
 #about-btn {
-  position: absolute;
+  position: fixed;
   bottom: 3vh;
   right: 1vw;
   border-radius: 30%;
@@ -133,4 +144,14 @@ html {
 
 #about-btn svg {
   color: black;
+}
+
+@media only screen and (max-width: 768px) {
+  #class1-sample {
+    margin-bottom: 8vh;
+  }
+
+  #prev-model-container span {
+    margin-right: 4vw;
+  }
 }
