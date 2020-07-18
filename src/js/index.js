@@ -1,7 +1,7 @@
 //Not expected result? One of the reason could be not enough example images
 //want to integrate this kind of feature? see the starter template or use this
 //facing bug/issues, create a github issue here
-//like this project? give it a start
+//like this project? give it a star
 // about- this project is part of cluster-11 organization
 //view a similar application from google teachable machine
 //download the model
@@ -12,6 +12,9 @@
 //use teachable machine show result css
 //ml5 doesn't show show percentage, stuck at 66.33% or 33.33% work on that, create a github issue or visit other demo
 //ask for images if none is provided
+//if data is less, change 'k'
+//fix style issue, have to import our stylesheet on the top
+//change progress bar color
 
 import "../styles.css";
 import "./handle-training";

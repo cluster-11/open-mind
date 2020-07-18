@@ -11,6 +11,7 @@ class KNN {
   constructor() {
     this.knnClassifier = knnClassifier.create();
     this.mapStringToIndex = [];
+    this.kNum = 25;
   }
 
   /**
@@ -47,7 +48,7 @@ class KNN {
    * @param {function} callback  - Optional. A function to be called once the input has been classified. If no callback is provided, it will return a promise that will be resolved once the model has classified the new input.
    */
   async classify(input, kOrCallback, cb) {
-    let k = 25; //this determines how specific will be the result in percentage(1 is low, 100 is max)
+    let k = this.kNum; //this determines how specific will be the result in percentage(1 is low, 100 is max)
     let callback = cb;
     let example;
 

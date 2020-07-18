@@ -19,6 +19,7 @@ let resultVideo = document.querySelector("#result-video");
 
 //getting the result
 function getResult(v) {
+  console.log(knn.kNum);
   const logits = ml5Features.infer(v);
   //classifying the video instance (logits) and getting the result based on training data
   knn.classify(logits, (error, result) => {
@@ -58,6 +59,7 @@ function modifyDomElem() {
   result2Name.innerText = cs2Name.value;
 }
 
+//handles the submit, creates new interface and displays result
 submitBtn.addEventListener("click", () => {
   modifyDomElem();
   setUpVideo(resultVideo); //this sets up the video element, connects webcam to video

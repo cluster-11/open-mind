@@ -153,6 +153,14 @@ html {
   color: black;
 }
 
+.bg-done {
+  background-color: rgb(0, 174, 255);
+}
+
+.bg-mid {
+  background-color: rgb(3, 238, 140);
+}
+
 @media only screen and (max-width: 768px) {
   #class1-sample {
     margin-bottom: 8vh;
