@@ -120,9 +120,6 @@ function handleImageNumber() {
 
 //adding data, training the model
 function addData(fromVideo, className, customImgEvent = undefined) {
-  //changing `knn.kNum` and `totalCounter` based on total image example given from the user
-  handleImageNumber();
-
   //if the user uploads image instead of capturing them from the video
   if (customImgEvent) {
     //if the user uploads multiple image
@@ -137,6 +134,8 @@ function addData(fromVideo, className, customImgEvent = undefined) {
       newImg.onload = () => {
         const logits = ml5Features.infer(newImg);
         knn.addExample(logits, className);
+        //changing `knn.kNum` and `totalCounter` based on total image example given from the user
+        handleImageNumber();
         cs1ImageCounter.style.width = totalCounter["class1"]
           ? `${totalCounter["class1"]}%`
           : "0%";
@@ -152,7 +151,8 @@ function addData(fromVideo, className, customImgEvent = undefined) {
     knn.addExample(logits, className);
 
     knn.addExample(logits, className);
-
+    //changing `knn.kNum` and `totalCounter` based on total image example given from the user
+    handleImageNumber();
     cs1ImageCounter.style.width = totalCounter["class1"]
       ? `${totalCounter["class1"]}%`
       : "0%";

@@ -14,7 +14,7 @@
 //ask for images if none is provided
 //if data is less, change 'k'
 //fix style issue, have to import our stylesheet on the top
-//add more images to get a better result
+//counter image badge not working on image upload from device
 
 import "../styles.css";
 import "./handle-training";
