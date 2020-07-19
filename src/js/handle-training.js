@@ -10,7 +10,8 @@ const cs2ImageUpload = document.querySelector("#cs2-image-upload");
 let video1 = document.querySelector("#cs1-video");
 let video2 = document.querySelector("#cs2-video");
 let totalImage = 0;
-
+let totalCounter;
+const expectedImgSample = 100 / 300; // 200 is the expected sample
 //setting up the video capture component
 export async function setUpVideo(v) {
   navigator.mediaDevices
@@ -33,24 +34,24 @@ setUpVideo(video2);
 
 //changing progress bar color based on total image
 function changeProgressColor(arg) {
-  const totalCounter = arg;
-  if (totalCounter["class1"] > 75) {
+  const totalImgByLabel = arg;
+  if (totalImgByLabel["class1"] > 75) {
     cs1ImageCounter.classList.remove("bg-mid");
     cs1ImageCounter.classList.add("bg-done");
-  } else if (totalCounter["class1"] > 50) {
+  } else if (totalImgByLabel["class1"] > 50) {
     cs1ImageCounter.classList.remove("bg-warning");
     cs1ImageCounter.classList.add("bg-mid");
-  } else if (totalCounter["class1"] > 25) {
+  } else if (totalImgByLabel["class1"] > 25) {
     cs1ImageCounter.classList.remove("bg-danger");
     cs1ImageCounter.classList.add("bg-warning");
   }
-  if (totalCounter["class2"] > 75) {
+  if (totalImgByLabel["class2"] > 75) {
     cs2ImageCounter.classList.remove("bg-mid");
     cs2ImageCounter.classList.add("bg-done");
-  } else if (totalCounter["class2"] > 50) {
+  } else if (totalImgByLabel["class2"] > 50) {
     cs2ImageCounter.classList.remove("bg-warning");
     cs2ImageCounter.classList.add("bg-mid");
-  } else if (totalCounter["class2"] > 25) {
+  } else if (totalImgByLabel["class2"] > 25) {
     cs2ImageCounter.classList.remove("bg-danger");
     cs2ImageCounter.classList.add("bg-warning");
   }
@@ -58,16 +59,28 @@ function changeProgressColor(arg) {
 
 //changing `knn.kNum` based on total image example given from the user. The higher the total image, the higher will be `knn.kNum`
 function changeKNum() {
-  const totalCounter = knn.getCountByLabel();
+  totalCounter = knn.getCountByLabel();
   if (totalCounter["class1"]) {
     totalImage = totalCounter["class1"];
+    totalCounter["class1"] = Math.round(
+      totalCounter["class1"] * expectedImgSample
+    );
     if (totalCounter["class2"]) {
       totalImage += totalCounter["class2"];
+      totalCounter["class2"] = Math.round(
+        totalCounter["class2"] * expectedImgSample
+      );
     }
   } else if (totalCounter["class2"]) {
     totalImage += totalCounter["class2"];
+    totalCounter["class2"] = Math.round(
+      totalCounter["class2"] * expectedImgSample
+    );
     if (totalCounter["class1"]) {
       totalImage = totalCounter["class1"];
+      totalCounter["class2"] = Math.round(
+        totalCounter["class2"] * expectedImgSample
+      );
     }
   }
 
@@ -82,12 +95,17 @@ function changeKNum() {
   } else {
     knn.kNum = 60;
   }
+  console.log(totalImage);
+  console.log(totalCounter);
   changeProgressColor(totalCounter);
   changeProgressColor(totalCounter);
 }
 
 //adding data, training the model
 function addData(fromVideo, className, customImgEvent = undefined) {
+  //changing `knn.kNum` and `totalCounter` based on total image example given from the user
+  changeKNum();
+
   //if the user uploads image instead of capturing them from the video
   if (customImgEvent) {
     //if the user uploads multiple image
@@ -102,12 +120,11 @@ function addData(fromVideo, className, customImgEvent = undefined) {
       newImg.onload = () => {
         const logits = ml5Features.infer(newImg);
         knn.addExample(logits, className);
-        const totalImage = knn.getCountByLabel();
-        cs1ImageCounter.style.width = totalImage["class1"]
-          ? `${totalImage["class1"]}%`
+        cs1ImageCounter.style.width = totalCounter["class1"]
+          ? `${totalCounter["class1"]}%`
           : "0%";
-        cs2ImageCounter.style.width = totalImage["class2"]
-          ? `${totalImage["class2"]}%`
+        cs2ImageCounter.style.width = totalCounter["class2"]
+          ? `${totalCounter["class2"]}%`
           : "0%";
       };
     });
@@ -118,18 +135,14 @@ function addData(fromVideo, className, customImgEvent = undefined) {
     knn.addExample(logits, className);
 
     knn.addExample(logits, className);
-    const totalImage = knn.getCountByLabel();
-    if (totalImage)
-      cs1ImageCounter.style.width = totalImage["class1"]
-        ? `${totalImage["class1"]}%`
-        : "0%";
-    cs2ImageCounter.style.width = totalImage["class2"]
-      ? `${totalImage["class2"]}%`
+
+    cs1ImageCounter.style.width = totalCounter["class1"]
+      ? `${totalCounter["class1"]}%`
+      : "0%";
+    cs2ImageCounter.style.width = totalCounter["class2"]
+      ? `${totalCounter["class2"]}%`
       : "0%";
   }
-
-  //changing `knn.kNum` based on total image example given from the user
-  changeKNum();
 }
 
 cs1TrainBtn.addEventListener("mousedown", () => {
