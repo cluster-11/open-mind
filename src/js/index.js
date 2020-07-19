@@ -15,6 +15,7 @@
 //if data is less, change 'k'
 //fix style issue, have to import our stylesheet on the top
 //add the main-header as most voted type on result-video
+//change font
 
 import "../styles.css";
 import "./handle-training";

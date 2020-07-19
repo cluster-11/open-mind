@@ -2,12 +2,12 @@ import { ml5Features, knn } from "./index";
 //dom-element
 const cs1TrainBtn = document.querySelector("#btn-1");
 const cs2CaptureVideo = document.querySelector("#btn-2");
-const cs1ImageCounter = document.querySelector("#cs1-image-counter");
-const cs2ImageCounter = document.querySelector("#cs2-image-counter");
+const cs1ImageCounterPG = document.querySelector("#cs1-image-counter");
+const cs2ImageCounterPG = document.querySelector("#cs2-image-counter");
 const cs1ImageUpload = document.querySelector("#cs1-image-upload");
 const cs2ImageUpload = document.querySelector("#cs2-image-upload");
-const totalCs1Img = document.querySelector("#total-cs1-img");
-const totalCs2Img = document.querySelector("#total-cs2-img");
+const cs1ImageCounter = document.querySelector("#total-cs1-img");
+const cs2ImageCounter = document.querySelector("#total-cs2-img");
 
 let video1 = document.querySelector("#cs1-video");
 let video2 = document.querySelector("#cs2-video");
@@ -38,23 +38,35 @@ setUpVideo(video2);
 function changeProgressColor(arg) {
   const totalImgByLabel = arg;
   if (totalImgByLabel["class1"] > 75) {
+    cs1ImageCounterPG.classList.remove("bg-mid");
     cs1ImageCounter.classList.remove("bg-mid");
+    cs1ImageCounterPG.classList.add("bg-done");
     cs1ImageCounter.classList.add("bg-done");
   } else if (totalImgByLabel["class1"] > 50) {
+    cs1ImageCounterPG.classList.remove("bg-warning");
     cs1ImageCounter.classList.remove("bg-warning");
+    cs1ImageCounterPG.classList.add("bg-mid");
     cs1ImageCounter.classList.add("bg-mid");
   } else if (totalImgByLabel["class1"] > 25) {
-    cs1ImageCounter.classList.remove("bg-danger");
+    cs1ImageCounterPG.classList.remove("bg-danger");
+    cs1ImageCounter.classList.remove("bg-secondary");
+    cs1ImageCounterPG.classList.add("bg-warning");
     cs1ImageCounter.classList.add("bg-warning");
   }
   if (totalImgByLabel["class2"] > 75) {
+    cs2ImageCounterPG.classList.remove("bg-mid");
     cs2ImageCounter.classList.remove("bg-mid");
+    cs2ImageCounterPG.classList.add("bg-done");
     cs2ImageCounter.classList.add("bg-done");
   } else if (totalImgByLabel["class2"] > 50) {
+    cs2ImageCounterPG.classList.remove("bg-warning");
     cs2ImageCounter.classList.remove("bg-warning");
+    cs2ImageCounterPG.classList.add("bg-mid");
     cs2ImageCounter.classList.add("bg-mid");
   } else if (totalImgByLabel["class2"] > 25) {
-    cs2ImageCounter.classList.remove("bg-danger");
+    cs2ImageCounterPG.classList.remove("bg-danger");
+    cs2ImageCounter.classList.remove("bg-secondary");
+    cs2ImageCounterPG.classList.add("bg-warning");
     cs2ImageCounter.classList.add("bg-warning");
   }
 }
@@ -67,7 +79,7 @@ function handleImageNumber() {
   if (totalCounter["class1"]) {
     //totalCounter["class1"] hasn't modified by us yet
     totalImage = totalCounter["class1"];
-    totalCs1Img.innerText = totalCounter["class1"];
+    cs1ImageCounter.innerText = totalCounter["class1"];
 
     //rounding up totalImage data to match up with our expected image sample, it helps to update progress border as expected
     totalCounter["class1"] = Math.round(
@@ -76,7 +88,7 @@ function handleImageNumber() {
     if (totalCounter["class2"]) {
       //totalCounter["class2"] hasn't modified by us yet
       totalImage += totalCounter["class2"];
-      totalCs2Img.innerText = totalCounter["class2"];
+      cs2ImageCounter.innerText = totalCounter["class2"];
 
       totalCounter["class2"] = Math.round(
         totalCounter["class2"] * expectedImgSample
@@ -87,7 +99,7 @@ function handleImageNumber() {
   else if (totalCounter["class2"]) {
     //totalCounter["class2"] hasn't modified by us yet
     totalImage += totalCounter["class2"];
-    totalCs2Img.innerText = totalCounter["class2"];
+    cs2ImageCounter.innerText = totalCounter["class2"];
 
     totalCounter["class2"] = Math.round(
       totalCounter["class2"] * expectedImgSample
@@ -95,7 +107,7 @@ function handleImageNumber() {
     if (totalCounter["class1"]) {
       //totalCounter["class1"] hasn't modified by us yet
       totalImage = totalCounter["class1"];
-      totalCs1Img.innerText = totalCounter["class1"];
+      cs1ImageCounter.innerText = totalCounter["class1"];
 
       totalCounter["class2"] = Math.round(
         totalCounter["class2"] * expectedImgSample
@@ -136,10 +148,10 @@ function addData(fromVideo, className, customImgEvent = undefined) {
         knn.addExample(logits, className);
         //changing `knn.kNum` and `totalCounter` based on total image example given from the user
         handleImageNumber();
-        cs1ImageCounter.style.width = totalCounter["class1"]
+        cs1ImageCounterPG.style.width = totalCounter["class1"]
           ? `${totalCounter["class1"]}%`
           : "0%";
-        cs2ImageCounter.style.width = totalCounter["class2"]
+        cs2ImageCounterPG.style.width = totalCounter["class2"]
           ? `${totalCounter["class2"]}%`
           : "0%";
       };
@@ -153,10 +165,10 @@ function addData(fromVideo, className, customImgEvent = undefined) {
     knn.addExample(logits, className);
     //changing `knn.kNum` and `totalCounter` based on total image example given from the user
     handleImageNumber();
-    cs1ImageCounter.style.width = totalCounter["class1"]
+    cs1ImageCounterPG.style.width = totalCounter["class1"]
       ? `${totalCounter["class1"]}%`
       : "0%";
-    cs2ImageCounter.style.width = totalCounter["class2"]
+    cs2ImageCounterPG.style.width = totalCounter["class2"]
       ? `${totalCounter["class2"]}%`
       : "0%";
   }
