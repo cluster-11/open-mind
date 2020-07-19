@@ -14,7 +14,7 @@
 //ask for images if none is provided
 //if data is less, change 'k'
 //fix style issue, have to import our stylesheet on the top
-//change progress bar color
+//add more images to get a better result
 
 import "../styles.css";
 import "./handle-training";

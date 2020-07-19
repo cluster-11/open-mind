@@ -6,6 +6,8 @@ const cs1ImageCounter = document.querySelector("#cs1-image-counter");
 const cs2ImageCounter = document.querySelector("#cs2-image-counter");
 const cs1ImageUpload = document.querySelector("#cs1-image-upload");
 const cs2ImageUpload = document.querySelector("#cs2-image-upload");
+const totalCs1Img = document.querySelector("#total-cs1-img");
+const totalCs2Img = document.querySelector("#total-cs2-img");
 
 let video1 = document.querySelector("#cs1-video");
 let video2 = document.querySelector("#cs2-video");
@@ -58,26 +60,43 @@ function changeProgressColor(arg) {
 }
 
 //changing `knn.kNum` based on total image example given from the user. The higher the total image, the higher will be `knn.kNum`
-function changeKNum() {
+function handleImageNumber() {
   totalCounter = knn.getCountByLabel();
+  //sometimes users might start with `class1` sample, in that case, `class2` might be null
+  console.log(totalCounter);
   if (totalCounter["class1"]) {
+    //totalCounter["class1"] hasn't modified by us yet
     totalImage = totalCounter["class1"];
+    totalCs1Img.innerText = totalCounter["class1"];
+
+    //rounding up totalImage data to match up with our expected image sample, it helps to update progress border as expected
     totalCounter["class1"] = Math.round(
       totalCounter["class1"] * expectedImgSample
     );
     if (totalCounter["class2"]) {
+      //totalCounter["class2"] hasn't modified by us yet
       totalImage += totalCounter["class2"];
+      totalCs2Img.innerText = totalCounter["class2"];
+
       totalCounter["class2"] = Math.round(
         totalCounter["class2"] * expectedImgSample
       );
     }
-  } else if (totalCounter["class2"]) {
+  }
+  //sometimes users might start with `class2` sample, in that case, `class1` might be null
+  else if (totalCounter["class2"]) {
+    //totalCounter["class2"] hasn't modified by us yet
     totalImage += totalCounter["class2"];
+    totalCs2Img.innerText = totalCounter["class2"];
+
     totalCounter["class2"] = Math.round(
       totalCounter["class2"] * expectedImgSample
     );
     if (totalCounter["class1"]) {
+      //totalCounter["class1"] hasn't modified by us yet
       totalImage = totalCounter["class1"];
+      totalCs1Img.innerText = totalCounter["class1"];
+
       totalCounter["class2"] = Math.round(
         totalCounter["class2"] * expectedImgSample
       );
@@ -95,8 +114,6 @@ function changeKNum() {
   } else {
     knn.kNum = 60;
   }
-  console.log(totalImage);
-  console.log(totalCounter);
   changeProgressColor(totalCounter);
   changeProgressColor(totalCounter);
 }
@@ -104,7 +121,7 @@ function changeKNum() {
 //adding data, training the model
 function addData(fromVideo, className, customImgEvent = undefined) {
   //changing `knn.kNum` and `totalCounter` based on total image example given from the user
-  changeKNum();
+  handleImageNumber();
 
   //if the user uploads image instead of capturing them from the video
   if (customImgEvent) {
@@ -152,6 +169,7 @@ cs1TrainBtn.addEventListener("mousedown", () => {
 });
 
 cs1ImageUpload.addEventListener("change", (e) => {
+  //for image upload
   addData(undefined, "class1", e);
 });
 
@@ -162,6 +180,7 @@ cs2CaptureVideo.addEventListener("mousedown", () => {
 });
 
 cs2ImageUpload.addEventListener("change", (e) => {
+  //for image upload
   addData(undefined, "class2", e);
 });
 
