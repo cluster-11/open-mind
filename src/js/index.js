@@ -5,14 +5,13 @@
 // about- this project is part of cluster-11 organization
 //view a similar application from google teachable machine
 //download the model
-//vanilla javascript and html code of this application
 //remove console.log
 //test on gpu slowdown, create new js for mobile
-//webpack input css on top
 //use teachable machine show result css
 //ask for images if none is provided
-//fix style issue, have to import our stylesheet on the top
 //add the main-header as most voted type on result-video
+//give it a star on github, [top progress bar]
+//show good job when they add more images
 
 import "../styles.css";
 import "./handle-training";
