@@ -2,6 +2,8 @@
 //want to integrate this kind of feature? see the starter template or use this
 //facing bug/issues, create a github issue here
 //like this project? give it a star
+//application using unet, webpack, javascript....
+//view the application on github
 // about- this project is part of cluster-11 organization
 //view a similar application from google teachable machine
 //download the model
@@ -12,6 +14,8 @@
 //add the main-header as most voted type on result-video
 //give it a star on github, [top progress bar]
 //show good job when they add more images
+//show clear all example in a dropdown beside the button
+//show a reload button, in the result page
 
 import "../styles.css";
 import "./handle-training";

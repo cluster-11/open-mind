@@ -15,6 +15,9 @@ const result1Name = document.querySelector("#result1-name");
 const result2Name = document.querySelector("#result2-name");
 const downloadModel = document.querySelector("#download-model");
 const previousModelInput = document.querySelector("#prev-model-input");
+const githubLink = document.querySelector("#github-star-alert");
+const githubAlertClose = document.querySelector("#close-github-alert");
+
 let resultVideo = document.querySelector("#result-video");
 
 //getting the result
@@ -57,6 +60,14 @@ function modifyDomElem() {
   downloadModel.style.display = "block";
   result1Name.innerText = cs1Name.value;
   result2Name.innerText = cs2Name.value;
+  const showGitHubAlert = JSON.parse(localStorage.getItem("showGitHubAlert"));
+  console.log(showGitHubAlert);
+  //if the user already closed it once, don't show it again on next refresh
+  if (showGitHubAlert && !showGitHubAlert.showGitHubAlert) {
+    githubLink.style.display = "none";
+  } else {
+    githubLink.style.display = "block";
+  }
 }
 
 //handles the submit, creates new interface and displays result
@@ -72,6 +83,14 @@ resultVideo.addEventListener("loadeddata", () => {
 //downloading the model
 downloadModel.addEventListener("click", () => {
   knn.save();
+});
+
+//handling Github close event, if the users closes it once, don't show it again
+githubAlertClose.addEventListener("click", () => {
+  localStorage.setItem(
+    "showGitHubAlert",
+    JSON.stringify({ showGitHubAlert: false })
+  );
 });
 
 //handling custom model input

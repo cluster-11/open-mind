@@ -26,7 +26,7 @@ export async function setUpVideo(v) {
     })
     .catch(() => {
       alert(
-        "You'll have to enable webcam access in order to use video-capture feature."
+        "Error accessing webcam, make sure you've enabled webcam access for this application and no other application is using the camera"
       );
     });
 }
@@ -174,12 +174,14 @@ function addData(fromVideo, className, customImgEvent = undefined) {
   }
 }
 
+//cs1 image example capture from video
 cs1TrainBtn.addEventListener("mousedown", () => {
   addData(video1, "class1");
   //calling the function again to capture more data
   addData(video1, "class1");
 });
 
+//cs1 image example capture from video
 cs1ImageUpload.addEventListener("change", (e) => {
   //for image upload
   addData(undefined, "class1", e);
@@ -195,5 +197,3 @@ cs2ImageUpload.addEventListener("change", (e) => {
   //for image upload
   addData(undefined, "class2", e);
 });
-
-// For the about section
