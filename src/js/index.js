@@ -16,6 +16,7 @@
 //show good job when they add more images
 //show clear all example in a dropdown beside the button
 //show a reload button, in the result page
+//show `download dataset` and load `new dataset side` by side
 
 import "../styles.css";
 import "./handle-training";
