@@ -205,6 +205,12 @@ class KNN {
     }
     if (data) {
       const { dataset, tensors } = data;
+      if (!dataset) {
+        alert(
+          "There has been a problem loading the file. JSON file may not contain appropriate dataset for this classification"
+        ); //showing alert if the json file is invalid
+        return;
+      }
       this.mapStringToIndex = Object.keys(dataset).map(
         (key) => dataset[key].label
       );
