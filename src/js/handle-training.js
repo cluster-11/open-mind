@@ -26,7 +26,7 @@ export async function setUpVideo(v) {
     })
     .catch(() => {
       alert(
-        "Error accessing webcam, make sure you've enabled webcam access for this application and no other application is using the camera"
+        "ERROR ACCESSING WEBCAM!!!\n Make sure you've enabled webcam access for this web application. \n\n If you've already given permission, close other applications that are using the camera"
       );
     });
 }
