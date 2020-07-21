@@ -13,7 +13,6 @@
 //ask for images if none is provided
 //fix style issue, have to import our stylesheet on the top
 //add the main-header as most voted type on result-video
-//update favicon
 
 import "../styles.css";
 import "./handle-training";
