@@ -43,40 +43,28 @@ export async function setUpVideo(v) {
 setUpVideo(video1);
 setUpVideo(video2);
 
-//changing progress bar color based on total image
+//changing example image progress bar color based on total image
 function changeProgressColor(arg) {
   const totalImgByLabel = arg;
   if (totalImgByLabel["class1"] > 75) {
-    cs1ImageCounterPG.classList.remove("bg-mid");
-    cs1ImageCounter.classList.remove("bg-mid");
-    cs1ImageCounterPG.classList.add("bg-done");
-    cs1ImageCounter.classList.add("bg-done");
+    cs1ImageCounter.style.backgroundColor = "rgb(0, 174, 255)";
+    cs1ImageCounter.style.backgroundColor = "rgb(0, 174, 255)";
   } else if (totalImgByLabel["class1"] > 50) {
-    cs1ImageCounterPG.classList.remove("bg-warning");
-    cs1ImageCounter.classList.remove("bg-warning");
-    cs1ImageCounterPG.classList.add("bg-mid");
-    cs1ImageCounter.classList.add("bg-mid");
+    cs1ImageCounterPG.style.backgroundColor = "rgb(3, 238, 140)";
+    cs1ImageCounter.style.backgroundColor = "rgb(3, 238, 140)";
   } else if (totalImgByLabel["class1"] > 25) {
-    cs1ImageCounterPG.classList.remove("bg-danger");
-    cs1ImageCounter.classList.remove("bg-secondary");
-    cs1ImageCounterPG.classList.add("bg-warning");
-    cs1ImageCounter.classList.add("bg-warning");
+    cs1ImageCounterPG.style.backgroundColor = "#ffc107";
+    cs1ImageCounter.style.backgroundColor = "#ffc107";
   }
   if (totalImgByLabel["class2"] > 75) {
-    cs2ImageCounterPG.classList.remove("bg-mid");
-    cs2ImageCounter.classList.remove("bg-mid");
-    cs2ImageCounterPG.classList.add("bg-done");
-    cs2ImageCounter.classList.add("bg-done");
+    cs2ImageCounterPG.style.backgroundColor = "rgb(0, 174, 255)";
+    cs2ImageCounter.style.backgroundColor = "rgb(0, 174, 255)";
   } else if (totalImgByLabel["class2"] > 50) {
-    cs2ImageCounterPG.classList.remove("bg-warning");
-    cs2ImageCounter.classList.remove("bg-warning");
-    cs2ImageCounterPG.classList.add("bg-mid");
-    cs2ImageCounter.classList.add("bg-mid");
+    cs2ImageCounterPG.style.backgroundColor = "rgb(3, 238, 140)";
+    cs2ImageCounter.style.backgroundColor = "rgb(3, 238, 140)";
   } else if (totalImgByLabel["class2"] > 25) {
-    cs2ImageCounterPG.classList.remove("bg-danger");
-    cs2ImageCounter.classList.remove("bg-secondary");
-    cs2ImageCounterPG.classList.add("bg-warning");
-    cs2ImageCounter.classList.add("bg-warning");
+    cs2ImageCounterPG.style.backgroundColor = "#ffc107";
+    cs2ImageCounter.style.backgroundColor = "#ffc107";
   }
 }
 

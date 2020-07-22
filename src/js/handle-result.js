@@ -17,6 +17,7 @@ const downloadModel = document.querySelector("#download-model");
 const previousModelInput = document.querySelector("#prev-model-input");
 const githubLink = document.querySelector("#github-star-alert");
 const githubAlertClose = document.querySelector("#close-github-alert");
+const prevModelTxt = document.querySelector("#prev-model-txt");
 
 let resultVideo = document.querySelector("#result-video");
 
@@ -60,6 +61,7 @@ function modifyDomElem() {
   downloadModel.style.display = "block";
   result1Name.innerText = cs1Name.value;
   result2Name.innerText = cs2Name.value;
+  prevModelTxt.innerText = "Load New Dataset";
   const showGitHubAlert = JSON.parse(localStorage.getItem("showGitHubAlert"));
   console.log(showGitHubAlert);
   //if the user already closed it once, don't show it again on next refresh

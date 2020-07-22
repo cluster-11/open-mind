@@ -115,6 +115,11 @@ html {
   margin-top: 2vh;
 }
 
+#cs1-image-counter,
+#cs2-image-counter {
+  background-color: #dc3545;
+}
+
 #submit-btn {
   margin-top: 8vh;
   margin-bottom: 10vh;
@@ -192,14 +197,6 @@ html {
 
 #download-model {
   display: none;
-}
-
-.bg-done {
-  background-color: rgb(0, 174, 255);
-}
-
-.bg-mid {
-  background-color: rgb(3, 238, 140);
 }
 
 @media only screen and (max-width: 768px) {
