@@ -8,12 +8,16 @@ const cs1ImageUpload = document.querySelector("#cs1-image-upload");
 const cs2ImageUpload = document.querySelector("#cs2-image-upload");
 const cs1ImageCounter = document.querySelector("#total-cs1-img");
 const cs2ImageCounter = document.querySelector("#total-cs2-img");
+const webcamDoc = document.querySelector("#webcam-doc-alert");
 
 let video1 = document.querySelector("#cs1-video");
 let video2 = document.querySelector("#cs2-video");
 let totalImage = 0;
 let totalCounter;
 const expectedImgSample = 100 / 300; // 200 is the expected sample
+//capturing the webcam permission so that we don't have to run the error message twice when the users denies permission
+let gaveCamPermission = true;
+
 //setting up the video capture component
 export async function setUpVideo(v) {
   navigator.mediaDevices
@@ -25,9 +29,14 @@ export async function setUpVideo(v) {
       v.play();
     })
     .catch(() => {
-      alert(
-        "ERROR ACCESSING WEBCAM!!!\n Make sure you've enabled webcam access for this web application. \n\n If you've already given permission, close other applications that are using the camera"
-      );
+      if (gaveCamPermission) {
+        alert(
+          "ERROR ACCESSING WEBCAM!!!\n Make sure you've enabled webcam access for this web application. \n\n If you've already given permission, close other applications that are using the camera and then refresh"
+        );
+      }
+
+      gaveCamPermission = false;
+      webcamDoc.style.display = "block";
     });
 }
 

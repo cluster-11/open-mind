@@ -12,12 +12,13 @@
 //use teachable machine show result css
 //ask for images if none is provided
 //add the main-header as most voted type on result-video
-//give it a star on github, [top progress bar]
 //show good job when they add more images
+//use lazy loading
 //show clear all example in a dropdown beside the button
 //show a reload button, in the result page
 //show `download dataset` and load `new dataset side` by side
-
+//show `how to enable webcam link`
+//if you want to get a better experience, you might wanna enable webcam access, heres how to do it.  Video capture features requires webcam feed, enable webcam acccess for this application. Heres how to do it
 import "../styles.css";
 import "./handle-training";
 import "./handle-result";

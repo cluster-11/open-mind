@@ -8,6 +8,57 @@ html {
   --bs-gutter-x: none;
 }
 
+#github-star-alert {
+  padding: 6px;
+  width: 99%;
+  margin: 10px auto;
+  margin-top: 1px;
+}
+
+#github-star-alert button {
+  padding: 6px;
+  padding-right: 20px;
+  padding-left: 20px;
+}
+
+#github-link {
+  text-decoration: none;
+  border-bottom: 2px solid black;
+  color: black;
+}
+
+#webcam-doc-alert {
+  width: 99%;
+  margin: 10px auto;
+  margin-top: 1px;
+}
+
+#chrome-doc-link,
+#firefox-doc-link,
+#safari-doc-link {
+  text-decoration: none;
+  color: black;
+  padding-bottom: 2px;
+}
+
+#chrome-doc-link {
+  border-bottom: 3px solid rgb(202, 189, 0);
+}
+
+#firefox-doc-link {
+  border-bottom: 3px solid rgb(155, 38, 9);
+}
+
+#safari-doc-link {
+  border-bottom: 3px solid rgb(39, 167, 241);
+}
+
+#chrome-doc-link:hover,
+#firefox-doc-link:hover,
+#safari-doc-link:hover {
+  border-bottom: 5px solid;
+}
+
 #prev-model-input {
   display: none;
 }
@@ -149,25 +200,6 @@ html {
 
 .bg-mid {
   background-color: rgb(3, 238, 140);
-}
-
-#github-star-alert {
-  padding: 6px;
-  width: 99%;
-  margin: 10px auto;
-  margin-top: 1px;
-}
-
-#github-star-alert button {
-  padding: 6px;
-  padding-right: 20px;
-  padding-left: 20px;
-}
-
-#github-link {
-  text-decoration: none;
-  border-bottom: 2px solid black;
-  color: black;
 }
 
 @media only screen and (max-width: 768px) {

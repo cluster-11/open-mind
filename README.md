@@ -9,6 +9,6 @@
 
 visit the demo [here](https://cluster-11.github.io/open-mind/)
 
-### Developer
+### For Developer
 
 Before creating a **pull request** or pushing code on the **master** branch, remember to do `npm run build` which will update the `/doc` folder. The demo is served from the `/doc` folder
