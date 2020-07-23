@@ -8,6 +8,10 @@ html {
   --bs-gutter-x: none;
 }
 
+#img-example-container {
+  margin-top: 8vh;
+}
+
 #github-star-alert {
   padding: 6px;
   width: 99%;
@@ -74,9 +78,21 @@ html {
 
 #prev-model-container {
   height: 50px;
-  width: 98vw;
   margin-top: 1vh;
-  margin-bottom: 3vh;
+  margin-bottom: 2vh;
+  float: right;
+  margin-right: 2vw;
+}
+
+#title {
+  margin: 0 auto;
+  margin-bottom: 4vh;
+  font-size: 2rem;
+  padding-top: 2vh;
+  width: 300px;
+  background-image: linear-gradient(to right, #000000, #4a09c4);
+  -webkit-background-clip: text;
+  color: transparent;
 }
 
 #prev-model-container span {
