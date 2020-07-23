@@ -67,7 +67,7 @@ function modifyDomElem() {
   downloadModel.style.display = "block";
   result1Name.innerText = cs1Name.value;
   result2Name.innerText = cs2Name.value;
-  prevModelTxt.innerText = "Load New Dataset";
+  prevModelTxt.innerText = "Upload New Dataset";
   const showGitHubAlert = JSON.parse(localStorage.getItem("showGitHubAlert"));
   //if the user already closed it once, don't show it again on next refresh
   if (showGitHubAlert && !showGitHubAlert.showGitHubAlert) {

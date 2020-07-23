@@ -179,16 +179,23 @@
     <!-- No Example Image Error END -->
 
     <!-- importing dataset from user START -->
-    <label for="prev-model-input" id="prev-model-container">
-      <span
-        data-toggle="tooltip"
-        title="import knn dataset and use it instead of training a new one"
-        id="prev-model-txt"
-      >
-        Load Dataset
-      </span>
-    </label>
-    <input id="prev-model-input" type="file" accept=".json" />
+    <div id="handle-model-dataset">
+      <div id="prev-model-container">
+        <label for="prev-model-input">
+          <span
+            data-toggle="tooltip"
+            title="import knn dataset and use it instead of training a new one"
+            id="prev-model-txt"
+          >
+            Upload Dataset
+          </span>
+        </label>
+        <input id="prev-model-input" type="file" accept=".json" />
+      </div>
+      <p id="download-model">
+        Download This Dataset
+      </p>
+    </div>
     <!-- importing dataset from user END -->
     <h1 id="title">Open Mind</h1>
 
@@ -313,7 +320,7 @@
     <!-- Result Section START-->
     <input id="cs1-image-upload" type="file" accept="image/*" />
     <div id="show-result" class="container">
-      <video id="result-video" width="640" height="480" autoplay></video>
+      <video id="result-video" width="534" height="400" autoplay></video>
       <div class="result1-container">
         <p id="result1-name"></p>
         <div id="result1-pc-container">
@@ -326,9 +333,6 @@
           <div id="result2-pc"><span id="result2-pc-label"></span></div>
         </div>
       </div>
-      <button class="btn btn-secondary" id="download-model">
-        Download This Dataset
-      </button>
     </div>
     <!-- Result Section END-->
 

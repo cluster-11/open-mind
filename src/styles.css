@@ -76,13 +76,34 @@ html {
 #prev-model-input {
   display: none;
 }
-
-#prev-model-container {
-  height: 50px;
+#handle-model-dataset {
   margin-top: 1vh;
   margin-bottom: 2vh;
   float: right;
   margin-right: 1vw;
+}
+#prev-model-container {
+  display: block;
+}
+
+#prev-model-container span {
+  float: right;
+  border-bottom: 3px solid rgb(107, 102, 102);
+  cursor: pointer;
+}
+#prev-model-container span:hover {
+  border-bottom: 5px solid rgb(107, 102, 102);
+}
+
+#download-model {
+  display: none;
+  border-bottom: 3px solid rgb(60, 27, 207);
+  margin-top: 10px;
+  margin-bottom: 0;
+  cursor: pointer;
+}
+#download-model:hover {
+  border-bottom: 5px solid rgb(60, 27, 207);
 }
 
 #title {
@@ -94,16 +115,6 @@ html {
   background-image: linear-gradient(to right, #000000, #4a09c4);
   -webkit-background-clip: text;
   color: transparent;
-}
-
-#prev-model-container span {
-  float: right;
-  border-bottom: 2px solid rgb(107, 102, 102);
-  cursor: pointer;
-}
-
-#prev-model-container span:hover {
-  border-bottom: 3px solid rgb(107, 102, 102);
 }
 
 #class1-sample {
@@ -241,10 +252,6 @@ html {
 #result1-pc-label,
 #result2-pc-label {
   font-size: 14px;
-}
-
-#download-model {
-  display: none;
 }
 
 @media only screen and (max-width: 768px) {
