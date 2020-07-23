@@ -1,3 +1,5 @@
+[![N|Solid](https://i.ibb.co/g6h47gC/Untitled-design-3.jpg)](https://github.com/cluster-11/open-mind)
+
 ## Open Mind
 
 > A web application that you can use to train and recognize your own images
