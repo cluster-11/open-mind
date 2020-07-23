@@ -41,6 +41,6 @@ export let knn = new KNNClassifier();
 
 //CLOSED FOR DEVELOPMENT
 //ask before leaving/quitting the application
-// window.onbeforeunload = function () {
-//   return "Changes you made may not be saved";
-// };
+window.onbeforeunload = function () {
+  return "Changes you made may not be saved";
+};
