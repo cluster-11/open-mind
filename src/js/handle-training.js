@@ -47,7 +47,7 @@ setUpVideo(video2);
 function changeProgressColor(arg) {
   const totalImgByLabel = arg;
   if (totalImgByLabel["class1"] > 75) {
-    cs1ImageCounter.style.backgroundColor = "rgb(0, 174, 255)";
+    cs1ImageCounterPG.style.backgroundColor = "rgb(0, 174, 255)";
     cs1ImageCounter.style.backgroundColor = "rgb(0, 174, 255)";
   } else if (totalImgByLabel["class1"] > 50) {
     cs1ImageCounterPG.style.backgroundColor = "rgb(3, 238, 140)";
