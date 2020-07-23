@@ -148,6 +148,11 @@ html {
   margin-left: 10px;
 }
 
+#total-cs1-img,
+#total-cs2-img {
+  background-color: #6c757d;
+}
+
 .progress {
   margin: 0 auto;
   width: 90%;
