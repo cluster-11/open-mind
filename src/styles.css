@@ -81,7 +81,7 @@ html {
   margin-top: 1vh;
   margin-bottom: 2vh;
   float: right;
-  margin-right: 2vw;
+  margin-right: 1vw;
 }
 
 #title {
@@ -120,6 +120,7 @@ html {
   margin: 0 auto;
   justify-content: center;
   text-align: center;
+  margin-bottom: 12vh;
 }
 
 #cs1-image-upload {
@@ -174,9 +175,8 @@ html {
   display: none;
 }
 
-#result1-container,
-#result2-container {
-  display: inline;
+.result1-container,
+.result2-container {
   margin: 10px auto;
 }
 
@@ -191,7 +191,7 @@ html {
 #result1-pc-container {
   display: none;
   width: 300px;
-  height: 20px;
+  height: 25px;
   background-color: rgba(137, 43, 226, 0.151);
   border-radius: 5px;
   text-align: start;
@@ -200,7 +200,7 @@ html {
 #result2-pc-container {
   display: none;
   width: 300px;
-  height: 20px;
+  height: 25px;
   background-color: rgba(226, 194, 13, 0.281);
   border-radius: 5px;
   text-align: start;
@@ -208,7 +208,7 @@ html {
 
 #result1-pc {
   width: 50%;
-  height: 20px;
+  height: 25px;
   background-color: rgb(137, 43, 226);
   -webkit-transition: width 0.15s ease-in-out;
   -moz-transition: width 0.15s ease-in-out;
@@ -217,12 +217,11 @@ html {
   text-align: end;
   display: none;
   border-radius: 5px;
-  font-size: 15px;
 }
 
 #result2-pc {
   width: 50%;
-  height: 20px;
+  height: 25px;
   background-color: rgb(226, 194, 13);
   -webkit-transition: width 0.15s ease-in-out;
   -moz-transition: width 0.15s ease-in-out;
@@ -231,7 +230,11 @@ html {
   text-align: end;
   display: none;
   border-radius: 5px;
-  font-size: 15px;
+}
+
+#result1-pc-label,
+#result2-pc-label {
+  font-size: 14px;
 }
 
 #download-model {

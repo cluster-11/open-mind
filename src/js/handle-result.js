@@ -13,6 +13,8 @@ const cs1SampleContainer = document.querySelector("#class1-sample");
 const cs2SampleContainer = document.querySelector("#class2-sample");
 const result1Name = document.querySelector("#result1-name");
 const result2Name = document.querySelector("#result2-name");
+const result1Label = document.querySelector("#result1-pc-label");
+const result2Label = document.querySelector("#result2-pc-label");
 const downloadModel = document.querySelector("#download-model");
 const previousModelInput = document.querySelector("#prev-model-input");
 const githubLink = document.querySelector("#github-star-alert");
@@ -41,8 +43,9 @@ function getResult(v) {
       result1PC.style.width = `${resultPC1}%`;
       result2PC.style.width = `${resultPC2}%`;
 
-      result1PC.innerText = `${resultPC1.toFixed(2)}%`;
-      result2PC.innerText = `${resultPC2.toFixed(2)}%`;
+      result1Label.innerText = `${resultPC1.toFixed(2)}%`;
+      result2Label.innerText = `${resultPC2.toFixed(2)}%`;
+
       //running the classification function continuously, with a 40 milliseconds break
       setTimeout(() => {
         getResult(v);
