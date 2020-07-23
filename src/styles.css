@@ -98,7 +98,7 @@ html {
 #download-model {
   display: none;
   border-bottom: 3px solid rgb(60, 27, 207);
-  margin-top: 10px;
+  margin-top: 5px;
   margin-bottom: 0;
   cursor: pointer;
 }
@@ -184,6 +184,23 @@ html {
 #result-video {
   display: none;
 }
+
+#result-text {
+  text-align: start;
+  /* width should match with the result video width */
+  width: 534px;
+  margin: 0 auto;
+  margin-top: 3vh;
+}
+
+#recognized-class {
+  margin-bottom: 4vh;
+}
+
+#recognized-class::first-letter {
+  text-transform: uppercase;
+}
+
 #result1-text {
   display: none;
 }

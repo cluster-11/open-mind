@@ -20,6 +20,8 @@ const previousModelInput = document.querySelector("#prev-model-input");
 const githubLink = document.querySelector("#github-star-alert");
 const githubAlertClose = document.querySelector("#close-github-alert");
 const prevModelTxt = document.querySelector("#prev-model-txt");
+const recognizedClassTitle = document.querySelector("#recognized-class");
+
 const noImgModal = new bootstrap.Modal(
   document.getElementById("no-img-modal"),
   { show: false }
@@ -35,6 +37,7 @@ function getResult(v) {
     if (error) {
       console.error(error);
     } else {
+      recognizedClassTitle.innerText = result.label;
       //showing result percentage
       const resultPC1 = result.confidencesByLabel["class1"] * 100;
       const resultPC2 = result.confidencesByLabel["class2"] * 100;
