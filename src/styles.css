@@ -1,6 +1,6 @@
 body,
 html {
-  font-family: sans-serif;
+  font-family: "Roboto", sans-serif;
   text-align: center;
 }
 
@@ -129,13 +129,13 @@ html {
 #result1-name {
   color: rgb(137, 43, 226);
   margin-right: 8px;
-  font-weight: bold;
+  font-weight: 500;
 }
 
 #result2-name {
   color: rgb(226, 194, 13);
   margin-right: 8px;
-  font-weight: bold;
+  font-weight: 500;
 }
 
 #cs2-image-upload {
@@ -159,7 +159,6 @@ html {
 }
 
 #submit-btn {
-  margin-top: 8vh;
   margin-bottom: 10vh;
   padding: 6px 18px;
 }
