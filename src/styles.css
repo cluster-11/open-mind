@@ -35,6 +35,7 @@ html {
   width: 99%;
   margin: 10px auto;
   margin-top: 1px;
+  text-align: start;
 }
 
 #chrome-doc-link,
