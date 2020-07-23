@@ -18,12 +18,15 @@ const previousModelInput = document.querySelector("#prev-model-input");
 const githubLink = document.querySelector("#github-star-alert");
 const githubAlertClose = document.querySelector("#close-github-alert");
 const prevModelTxt = document.querySelector("#prev-model-txt");
+const noImgModal = new bootstrap.Modal(
+  document.getElementById("no-img-modal"),
+  { show: false }
+);
 
 let resultVideo = document.querySelector("#result-video");
 
 //getting the result
 function getResult(v) {
-  console.log(knn.kNum);
   const logits = ml5Features.infer(v);
   //classifying the video instance (logits) and getting the result based on training data
   knn.classify(logits, (error, result) => {
@@ -63,7 +66,6 @@ function modifyDomElem() {
   result2Name.innerText = cs2Name.value;
   prevModelTxt.innerText = "Load New Dataset";
   const showGitHubAlert = JSON.parse(localStorage.getItem("showGitHubAlert"));
-  console.log(showGitHubAlert);
   //if the user already closed it once, don't show it again on next refresh
   if (showGitHubAlert && !showGitHubAlert.showGitHubAlert) {
     githubLink.style.display = "none";
@@ -74,6 +76,18 @@ function modifyDomElem() {
 
 //handles the submit, creates new interface and displays result
 submitBtn.addEventListener("click", () => {
+  const totalExampleImage = knn.getCountByLabel();
+
+  //blocking submitting result if no example image is given or if one of the class has no example image
+  if (
+    Object.keys(totalExampleImage).length === 0 ||
+    !totalExampleImage["class1"] ||
+    !totalExampleImage["class2"]
+  ) {
+    noImgModal.show();
+    return;
+  }
+
   modifyDomElem();
   setUpVideo(resultVideo); //this sets up the video element, connects webcam to video
 });

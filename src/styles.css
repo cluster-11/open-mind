@@ -59,6 +59,15 @@ html {
   border-bottom: 5px solid;
 }
 
+#no-img-warning {
+  text-align: start;
+}
+
+#no-image-innertitle {
+  margin-bottom: 8px;
+  display: block;
+}
+
 #prev-model-input {
   display: none;
 }

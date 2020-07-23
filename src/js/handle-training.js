@@ -72,7 +72,6 @@ function changeProgressColor(arg) {
 function handleImageNumber() {
   totalCounter = knn.getCountByLabel();
   //sometimes users might start with `class1` sample, in that case, `class2` might be null
-  console.log(totalCounter);
   if (totalCounter["class1"]) {
     //totalCounter["class1"] hasn't modified by us yet
     totalImage = totalCounter["class1"];

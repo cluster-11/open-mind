@@ -46,37 +46,11 @@
 
       gtag("config", "UA-173244825-1");
     </script>
-
-    <!-- SEO, font and css import end -->
+    <!-- SEO, font and css import END -->
   </head>
 
   <body>
-    <!-- GitHub and DOC section start -->
-    <div
-      class="alert alert-primary alert-dismissible fade show"
-      role="alert"
-      id="github-star-alert"
-      style="display: none;"
-    >
-      If you like this project, give it a star on
-      <a
-        href="https://github.com/cluster-11/open-mind"
-        target="_blank"
-        rel="noopener noreferrer"
-        id="github-link"
-        >GitHub</a
-      >
-      <button
-        type="button"
-        class="close"
-        data-dismiss="alert"
-        aria-label="Close"
-        id="close-github-alert"
-      >
-        <span aria-hidden="true">&times;</span>
-      </button>
-    </div>
-
+    <!-- Webcam doc section START -->
     <div
       class="alert alert-danger alert-dismissible fade show"
       role="alert"
@@ -119,7 +93,81 @@
         <span aria-hidden="true">&times;</span>
       </button>
     </div>
-    <!-- Github section end -->
+    <!-- Webcam doc section END -->
+
+    <!-- GitHub LINK Section START -->
+    <div
+      class="alert alert-primary alert-dismissible fade show"
+      role="alert"
+      id="github-star-alert"
+      style="display: none;"
+    >
+      If you like this project, give it a star on
+      <a
+        href="https://github.com/cluster-11/open-mind"
+        target="_blank"
+        rel="noopener noreferrer"
+        id="github-link"
+        >GitHub</a
+      >
+      <button
+        type="button"
+        class="close"
+        data-dismiss="alert"
+        aria-label="Close"
+        id="close-github-alert"
+      >
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <!-- GitHub link section End -->
+
+    <!-- No Example Image Modal START -->
+    <div
+      class="modal fade"
+      id="no-img-modal"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">
+              Minimum Requirements Not Met
+            </h5>
+          </div>
+          <div class="modal-body" id="no-img-warning">
+            <b id="no-image-innertitle">This happens if: </b>
+            <input
+              type="radio"
+              name="options"
+              id="option2"
+              autocomplete="off"
+              checked
+              disabled
+            />
+            There are on example images
+            <br />
+            <input
+              type="radio"
+              name="option1"
+              id="option2"
+              autocomplete="off"
+              checked
+              disabled
+            />
+            One of the class had no example images
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary" data-dismiss="modal">
+              Got it
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- No Example Image Error END -->
 
     <!-- importing dataset from user START -->
     <label for="prev-model-input" id="prev-model-container">
@@ -269,7 +317,7 @@
         </div>
       </div>
       <button class="btn btn-secondary" id="download-model">
-        Download dataset
+        Download This Dataset
       </button>
     </div>
     <!-- Result Section END-->
