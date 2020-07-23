@@ -111,6 +111,7 @@ html {
   margin: 0 auto;
   justify-content: center;
   text-align: center;
+  margin-bottom: 12vh;
 }
 
 #class2-sample {
@@ -123,6 +124,18 @@ html {
 
 #cs1-image-upload {
   display: none;
+}
+
+#result1-name {
+  color: rgb(137, 43, 226);
+  margin-right: 8px;
+  font-weight: bold;
+}
+
+#result2-name {
+  color: rgb(226, 194, 13);
+  margin-right: 8px;
+  font-weight: bold;
 }
 
 #cs2-image-upload {
@@ -148,6 +161,7 @@ html {
 #submit-btn {
   margin-top: 8vh;
   margin-bottom: 10vh;
+  padding: 6px 18px;
 }
 
 #result-video {
@@ -164,6 +178,7 @@ html {
 #result1-container,
 #result2-container {
   display: inline;
+  margin: 10px auto;
 }
 
 #result1-name {

@@ -57,8 +57,8 @@ function modifyDomElem() {
   cs2SampleContainer.style.display = "none";
   submitBtn.style.display = "none";
   resultVideo.style.display = "inline";
-  result1Container.style.display = "block";
-  result2Container.style.display = "block";
+  result1Container.style.display = "inline-block";
+  result2Container.style.display = "inline-block";
   result1PC.style.display = "inline-block";
   result2PC.style.display = "inline-block";
   downloadModel.style.display = "block";
