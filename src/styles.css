@@ -229,6 +229,8 @@ html {
   background-color: rgba(137, 43, 226, 0.151);
   border-radius: 5px;
   text-align: start;
+  float: right;
+  margin-right: 20px;
 }
 
 #result2-pc-container {
@@ -238,6 +240,8 @@ html {
   background-color: rgba(226, 194, 13, 0.281);
   border-radius: 5px;
   text-align: start;
+  float: right;
+  margin-right: 20px;
 }
 
 #result1-pc {
