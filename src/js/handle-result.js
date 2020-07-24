@@ -37,7 +37,11 @@ function getResult(v) {
     if (error) {
       console.error(error);
     } else {
-      recognizedClassTitle.innerText = result.label;
+      if (result.label == "class1") {
+        recognizedClassTitle.innerText = cs1Name.value;
+      } else if (result.label == "class2") {
+        recognizedClassTitle.innerText = cs2Name.value;
+      }
       //showing result percentage
       const resultPC1 = result.confidencesByLabel["class1"] * 100;
       const resultPC2 = result.confidencesByLabel["class2"] * 100;
