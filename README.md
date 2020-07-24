@@ -2,12 +2,19 @@
 
 ## Open Mind
 
-> A web application that you can use to train and recognize your own images
+> A web application that you can use to train a machine learning model and make it recognize your images
 
-- easy to understand and helpful comments
-- uses `ml5` library
-- similar to google's teachable machine project
+- currently supports two class
+- uses `tensorflowjs`
+- supports _dataset_ upload
+- can download your trained _dataset_
+- similar to Google's [teachable machine](https://teachablemachine.withgoogle.com/) project
 - An extended version of the Knn starter application
+
+### When Using
+
+- Try to give as much example image as possible so the application can recognize it better
+- Since the training happens instantly when you add example, sometimes on lower-end devices the application might slow down for a bit
 
 visit the demo [here](https://cluster-11.github.io/open-mind/)
 
