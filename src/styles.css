@@ -17,6 +17,7 @@ html {
   width: 99%;
   margin: 10px auto;
   margin-top: 1px;
+  z-index: 1;
 }
 
 #github-star-alert button {
@@ -35,7 +36,7 @@ html {
   width: 99%;
   margin: 10px auto;
   margin-top: 1px;
-  text-align: start;
+  line-height: 2;
 }
 
 #chrome-doc-link,

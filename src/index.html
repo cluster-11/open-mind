@@ -214,7 +214,13 @@
         </label>
         <input id="prev-model-input" type="file" accept=".json" />
       </div>
-      <p id="download-dataset" style="display: none;">
+      <p
+        id="download-dataset"
+        style="display: none;"
+        data-toggle="tooltip"
+        data-placement="right"
+        title="save/download the dataset"
+      >
         Download This Dataset
       </p>
       <p
@@ -222,7 +228,7 @@
         style="display: none;"
         data-toggle="tooltip"
         data-placement="right"
-        title="train new dataset, current one will be lost"
+        title="Train new dataset. if current dataset is important, make sure to save it first or it will be lost"
       >
         Train Again
       </p>
