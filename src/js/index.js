@@ -34,8 +34,6 @@ import "./handle-result";
 import Mobilenet from "./knn-classifier&mobileNet/mobileNet";
 import KNNClassifier from "./knn-classifier&mobileNet/knn-classifier";
 
-// alert("==================================================================");
-
 export let ml5Features = new Mobilenet("MobileNet", () => {});
 export let knn = new KNNClassifier();
 

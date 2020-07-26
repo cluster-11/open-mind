@@ -1,4 +1,5 @@
 import { ml5Features, knn } from "./index";
+import { checkMobile } from "./utils";
 //dom-element
 const cs1TrainBtn = document.querySelector("#btn-1");
 const cs2CaptureVideo = document.querySelector("#btn-2");
@@ -9,6 +10,7 @@ const cs2ImageUpload = document.querySelector("#cs2-image-upload");
 const cs1ImageCounter = document.querySelector("#total-cs1-img");
 const cs2ImageCounter = document.querySelector("#total-cs2-img");
 const webcamDoc = document.querySelector("#webcam-doc-alert");
+const mobileWarning = document.querySelector("#mobile-warning-alert");
 
 let video1 = document.querySelector("#cs1-video");
 let video2 = document.querySelector("#cs2-video");
@@ -17,6 +19,11 @@ let totalCounter;
 const expectedImgSample = 100 / 300; // 200 is the expected sample
 //capturing the webcam permission so that we don't have to run the error message twice when the users denies permission
 let gaveCamPermission = true;
+
+//showing performance warning on mobile
+if (checkMobile()) {
+  mobileWarning.style.display = "block";
+}
 
 //setting up the video capture component
 export async function setUpVideo(v) {
