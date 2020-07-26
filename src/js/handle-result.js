@@ -15,12 +15,13 @@ const result1Name = document.querySelector("#result1-name");
 const result2Name = document.querySelector("#result2-name");
 const result1Label = document.querySelector("#result1-pc-label");
 const result2Label = document.querySelector("#result2-pc-label");
-const downloadModel = document.querySelector("#download-model");
+const downloadModel = document.querySelector("#download-dataset");
 const previousModelInput = document.querySelector("#prev-model-input");
 const githubLink = document.querySelector("#github-star-alert");
 const githubAlertClose = document.querySelector("#close-github-alert");
 const prevModelTxt = document.querySelector("#prev-model-txt");
 const recognizedClassTitle = document.querySelector("#recognized-class");
+const trainNewBtn = document.querySelector("#train-new-dataset");
 
 const noImgModal = new bootstrap.Modal(
   document.getElementById("no-img-modal"),
@@ -28,6 +29,8 @@ const noImgModal = new bootstrap.Modal(
 );
 
 let resultVideo = document.querySelector("#result-video");
+//reloading without warning
+export let noWrReload = false;
 
 //getting the result
 function getResult(v) {
@@ -72,6 +75,7 @@ function modifyDomElem() {
   result1PC.style.display = "inline-block";
   result2PC.style.display = "inline-block";
   downloadModel.style.display = "block";
+  trainNewBtn.style.display = "block";
   result1Name.innerText = cs1Name.value;
   result2Name.innerText = cs2Name.value;
   prevModelTxt.innerText = "Upload New Dataset";
@@ -109,6 +113,12 @@ resultVideo.addEventListener("loadeddata", () => {
 //downloading the model
 downloadModel.addEventListener("click", () => {
   knn.save();
+});
+
+//training the model again, reloading without warning
+trainNewBtn.addEventListener("click", () => {
+  noWrReload = true;
+  window.location.reload();
 });
 
 //handling Github close event, if the users closes it once, don't show it again

@@ -95,15 +95,26 @@ html {
   border-bottom: 5px solid rgb(107, 102, 102);
 }
 
-#download-model {
-  display: none;
+#download-dataset {
   border-bottom: 3px solid rgb(60, 27, 207);
   margin-top: 5px;
   margin-bottom: 0;
   cursor: pointer;
 }
-#download-model:hover {
+#download-dataset:hover {
   border-bottom: 5px solid rgb(60, 27, 207);
+}
+
+#train-new-dataset {
+  border-bottom: 3px solid rgb(27, 207, 117);
+  cursor: pointer;
+  position: fixed;
+  left: 2vw;
+  top: 1vh;
+  display: table;
+}
+#train-new-dataset:hover {
+  border-bottom: 5px solid rgb(27, 207, 117);
 }
 
 #title {

@@ -33,6 +33,7 @@ import "./handle-training";
 import "./handle-result";
 import Mobilenet from "./knn-classifier&mobileNet/mobileNet";
 import KNNClassifier from "./knn-classifier&mobileNet/knn-classifier";
+import { noWrReload } from "./handle-result";
 
 export let ml5Features = new Mobilenet("MobileNet", () => {});
 export let knn = new KNNClassifier();
@@ -40,5 +41,8 @@ export let knn = new KNNClassifier();
 //CLOSED FOR DEVELOPMENT
 //ask before leaving/quitting the application
 window.onbeforeunload = function () {
-  return "Changes you made may not be saved";
+  //if user click on `train again` button, don't show them the warning
+  if (!noWrReload) {
+    return "Changes you made may not be saved";
+  }
 };
