@@ -11,6 +11,9 @@ const cs1ImageCounter = document.querySelector("#total-cs1-img");
 const cs2ImageCounter = document.querySelector("#total-cs2-img");
 const webcamDoc = document.querySelector("#webcam-doc-alert");
 const mobileWarning = document.querySelector("#mobile-warning-alert");
+const clearExampleBtn1 = document.querySelector("#clear-example-btn1");
+const clearExampleBtn2 = document.querySelector("#clear-example-btn2");
+const clearExample = document.querySelector("#clear-modal-btn");
 
 let video1 = document.querySelector("#cs1-video");
 let video2 = document.querySelector("#cs2-video");
@@ -19,6 +22,13 @@ let totalCounter;
 const expectedImgSample = 100 / 300; // 200 is the expected sample
 //capturing the webcam permission so that we don't have to run the error message twice when the users denies permission
 let gaveCamPermission = true;
+//capturing which class to clear, needed for example clear warning modal
+let clearExampleFrom = "";
+
+const clearExampleWarningModal = new bootstrap.Modal(
+  document.getElementById("clear-img-warning-modal"),
+  { show: false }
+);
 
 //showing performance warning on mobile
 if (checkMobile()) {
@@ -78,6 +88,7 @@ function changeProgressColor(arg) {
 //changing `knn.kNum` based on total image example given from the user. The higher the total image, the higher will be `knn.kNum`
 function handleImageNumber() {
   totalCounter = knn.getCountByLabel();
+  console.log(totalCounter);
   //sometimes users might start with `class1` sample, in that case, `class2` might be null
   if (totalCounter["class1"]) {
     //totalCounter["class1"] hasn't modified by us yet
@@ -199,4 +210,29 @@ cs2CaptureVideo.addEventListener("mousedown", () => {
 cs2ImageUpload.addEventListener("change", (e) => {
   //for image upload
   addData(undefined, "class2", e);
+});
+
+//handling clear example data click
+clearExampleBtn1.addEventListener("click", () => {
+  clearExampleFrom = "class1";
+  clearExampleWarningModal.show();
+});
+
+clearExampleBtn2.addEventListener("click", () => {
+  clearExampleFrom = "class2";
+  clearExampleWarningModal.show();
+});
+
+//handling clear example data click
+clearExample.addEventListener("click", () => {
+  knn.clearLabel(clearExampleFrom);
+  if (clearExampleFrom == "class1") {
+    cs1ImageCounter.innerText = 0;
+    cs1ImageCounterPG.style.width = "0%";
+    cs1ImageCounterPG.style.backgroundColor = "#6c757d";
+  } else if (clearExampleFrom == "class2") {
+    cs2ImageCounter.innerText = 0;
+    cs2ImageCounterPG.style.width = "0%";
+    cs2ImageCounterPG.style.backgroundColor = "#6c757d";
+  }
 });

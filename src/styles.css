@@ -147,6 +147,19 @@ html {
   margin-bottom: 12vh;
 }
 
+#clear-example-btn1,
+#clear-example-btn2 {
+  padding: 5px;
+  background-color: transparent;
+  cursor: pointer;
+  margin-left: 25px;
+}
+
+#clear-example-btn1 svg,
+#clear-example-btn2 svg {
+  color: red;
+}
+
 #cs1-image-upload {
   display: none;
 }

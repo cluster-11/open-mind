@@ -8,6 +8,7 @@
 //use teachable machine show result css
 //show good job when they add more images
 //show clear all example in a dropdown beside the button
+//clear all previous examples, cross button, popup modal
 
 //[
 
@@ -20,7 +21,7 @@
 //This is a open source project
 //]
 
-//try display none
+//not the result you expected
 
 import "../styles.css";
 import "./handle-training";
