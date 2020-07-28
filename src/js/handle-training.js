@@ -88,7 +88,6 @@ function changeProgressColor(arg) {
 //changing `knn.kNum` based on total image example given from the user. The higher the total image, the higher will be `knn.kNum`
 function handleImageNumber() {
   totalCounter = knn.getCountByLabel();
-  console.log(totalCounter);
   //sometimes users might start with `class1` sample, in that case, `class2` might be null
   if (totalCounter["class1"]) {
     //totalCounter["class1"] hasn't modified by us yet
