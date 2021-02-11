@@ -118,6 +118,24 @@ html {
   border-bottom: 5px solid rgb(27, 207, 117);
 }
 
+#powered-by {
+  cursor: pointer;
+  position: fixed;
+  right: 2vw;
+  bottom: 0;
+  display: table;
+  color: #6c757d;
+  font-size: 0.9rem;
+}
+#surveywave-link {
+  color: #2d3033;
+  text-decoration: none;
+}
+
+#surveywave-link:hover {
+  text-decoration: underline;
+}
+
 #title {
   margin: 0 auto;
   margin-bottom: 4vh;

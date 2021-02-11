@@ -22,6 +22,7 @@ const githubAlertClose = document.querySelector("#close-github-alert");
 const prevModelTxt = document.querySelector("#prev-model-txt");
 const recognizedClassTitle = document.querySelector("#recognized-class");
 const trainNewBtn = document.querySelector("#train-new-dataset");
+const poweredBy = document.querySelector("#powered-by");
 
 const noImgModal = new bootstrap.Modal(
   document.getElementById("no-img-modal"),
@@ -76,6 +77,7 @@ function modifyDomElem() {
   result2PC.style.display = "inline-block";
   downloadModel.style.display = "block";
   trainNewBtn.style.display = "block";
+  poweredBy.style.display = "block";
   result1Name.innerText = cs1Name.value;
   result2Name.innerText = cs2Name.value;
   prevModelTxt.innerText = "Upload New Dataset";
