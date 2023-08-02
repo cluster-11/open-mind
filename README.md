@@ -24,3 +24,4 @@ Before creating a **pull request** or pushing code on the **master** branch, rem
 
 **Note**
 > If you're looking for a starter version, use [this](https://github.com/cluster-11/knn-image-recognition-starter)
+> If you're looking for more details or want to look into a [new calculation app](http://hwdoi.com/), check it out here.
